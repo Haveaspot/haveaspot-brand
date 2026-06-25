@@ -1,16 +1,18 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const primary = [
-  { name: 'Brand Dark',  hex: '#021300', rgb: '2, 19, 0',    usage: 'Primary text, borders, button backgrounds, nav, headings. The backbone of the entire visual system.' },
-  { name: 'Brand Green', hex: '#0AAD0A', rgb: '10, 173, 10', usage: 'Hover states, active accents, CTA button hover, active nav links, focus rings. Used sparingly — action only.' },
+const namedPalette = [
+  { name: 'Green Black', hex: '#021300', rgb: '2, 19, 0',       usage: 'Primary text, borders, button backgrounds, nav, headings. The backbone of the entire visual system.' },
+  { name: 'Neon Green',  hex: '#0FED27', rgb: '15, 237, 39',    usage: 'Brand accent in logo and identity. Not for UI text or backgrounds — identity use only.' },
+  { name: 'Neon Yellow', hex: '#D5FF00', rgb: '213, 255, 0',    usage: 'Brand accent. Reserved for high-impact marketing and identity moments only.' },
+  { name: 'Kale',        hex: '#0E491F', rgb: '14, 73, 31',     usage: 'Deep hover and active press states. Adds depth when layered under Lime on interaction.' },
+  { name: 'Lime',        hex: '#0AAD0A', rgb: '10, 173, 10',    usage: 'Hover states, active accents, CTA button hover, active nav links, focus rings. Used sparingly — action only.' },
+  { name: 'Just White',  hex: '#FFFFFF', rgb: '255, 255, 255',  usage: 'Primary page background, card backgrounds, button text on dark fills.' },
 ];
 
-const supporting = [
-  { name: 'White',        hex: '#FFFFFF', rgb: '255, 255, 255', usage: 'Page backgrounds, card backgrounds, button text on dark fills.' },
+const structural = [
   { name: 'Surface',      hex: '#F9FAFB', rgb: '249, 250, 251', usage: 'Subtle section backgrounds, search result panels, filter dropdowns.' },
   { name: 'Border Light', hex: '#E5E7EB', rgb: '229, 231, 235', usage: 'Dividers, structural borders, non-featured card outlines.' },
-  { name: 'Deep Hover',   hex: '#0E491F', rgb: '14, 73, 31',   usage: 'Deep press / active state. Use sparingly as an alternative to Brand Green on hover.' },
 ];
 ---
 
@@ -19,29 +21,27 @@ const supporting = [
     <span class="page-num">03 — Colour Palette</span>
     <h1 class="page-title">Colour Palette</h1>
     <p class="page-intro">
-      Haveaspot uses a deliberately restrained palette. Two primary colours carry the entire brand —
-      a near-black green and a vivid accent green. Everything else is white and structural neutrals.
+      Six named brand colours. Green Black and Lime carry the digital product. Neon Green and Neon Yellow are identity accents — vivid, purposeful, and used sparingly.
     </p>
   </div>
 
   <div class="page-body">
 
-    <!-- Primary -->
+    <!-- Named Palette -->
     <div class="block">
-      <h2 class="block-title">Primary Palette</h2>
+      <h2 class="block-title">Brand Palette</h2>
       <p class="block-desc">
-        These two colours carry the brand. They appear on every page, in every product.
+        Six named brand colours. Green Black and Lime are the primary UI workhorses. Neon Green and Neon Yellow are identity and marketing accents — use with restraint in digital UI.
       </p>
-      <div class="swatch-grid swatch-grid--primary">
-        {primary.map(c => (
-          <div class="swatch-card swatch-card--primary">
-            <div class="swatch-colour" style={`background: ${c.hex};`}></div>
+      <div class="swatch-grid swatch-grid--named">
+        {namedPalette.map(c => (
+          <div class="swatch-card" style={c.hex === '#FFFFFF' ? 'border-color: #E5E7EB;' : `border-color: ${c.hex};`}>
+            <div class="swatch-colour" style={`background: ${c.hex}; ${c.hex === '#FFFFFF' ? 'border-bottom: 1px solid #E5E7EB;' : ''}`}></div>
             <div class="swatch-info">
               <h3 class="swatch-name">{c.name}</h3>
               <div class="swatch-values">
                 <div class="swatch-row"><span class="swatch-key">HEX</span><code class="swatch-val">{c.hex}</code></div>
                 <div class="swatch-row"><span class="swatch-key">RGB</span><code class="swatch-val">{c.rgb}</code></div>
-                <div class="swatch-row"><span class="swatch-key">CSS</span><code class="swatch-val">--color-brand-{c.name.split(' ')[1].toLowerCase()}</code></div>
               </div>
               <p class="swatch-usage">{c.usage}</p>
             </div>
@@ -52,14 +52,14 @@ const supporting = [
 
     <hr class="section-rule" />
 
-    <!-- Supporting -->
+    <!-- Structural -->
     <div class="block">
-      <h2 class="block-title">Supporting Palette</h2>
+      <h2 class="block-title">Structural Colours</h2>
       <p class="block-desc">
-        Structural colours that provide depth, separation, and breathing room without competing with the primary palette.
+        Neutral tones for backgrounds, surfaces, and dividers. These never carry brand meaning — they provide depth and structure.
       </p>
       <div class="swatch-grid swatch-grid--supporting">
-        {supporting.map(c => (
+        {structural.map(c => (
           <div class="swatch-card">
             <div class="swatch-colour swatch-colour--bordered" style={`background: ${c.hex};`}></div>
             <div class="swatch-info">
@@ -156,9 +156,9 @@ const supporting = [
 </BaseLayout>
 
 <style>
-  .swatch-grid--primary {
+  .swatch-grid--named {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.25rem;
     margin-bottom: 0;
   }
@@ -168,20 +168,17 @@ const supporting = [
     gap: 1rem;
   }
   .swatch-card {
-    border: 1px solid #E5E7EB;
+    border: 2px solid #021300;
     border-radius: 12px;
     overflow: hidden;
   }
-  .swatch-card--primary {
-    border-width: 2px;
-    border-color: #021300;
-  }
   .swatch-colour {
-    height: 140px;
+    height: 120px;
     width: 100%;
   }
   .swatch-colour--bordered {
     height: 80px;
+    border-bottom: 1px solid #E5E7EB;
   }
   .swatch-info {
     padding: 1.25rem 1.5rem 1.5rem;
@@ -316,8 +313,11 @@ const supporting = [
     border-radius: 3px;
   }
 
+  @media (max-width: 900px) {
+    .swatch-grid--named { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 700px) {
-    .swatch-grid--primary,
+    .swatch-grid--named,
     .swatch-grid--supporting,
     .dd-grid { grid-template-columns: 1fr; }
     .rule-row { grid-template-columns: 1fr 1fr; }
