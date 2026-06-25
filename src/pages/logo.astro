@@ -24,25 +24,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="logo-showcase-grid">
         <div class="logo-tile logo-tile--dark">
           <div class="logo-placeholder">
-            <span class="lp-wordmark">Haveaspot</span>
+            <img src="/logo.webp" alt="Haveaspot Logo" class="logo-tile-img logo-tile-img--invert" />
           </div>
           <span class="logo-tile-label">Primary — on dark</span>
         </div>
         <div class="logo-tile logo-tile--light">
           <div class="logo-placeholder">
-            <span class="lp-wordmark lp-wordmark--dark">Haveaspot</span>
+            <img src="/logo.webp" alt="Haveaspot Logo" class="logo-tile-img" />
           </div>
           <span class="logo-tile-label">Primary — on white</span>
         </div>
         <div class="logo-tile logo-tile--green">
           <div class="logo-placeholder">
-            <span class="lp-wordmark">Haveaspot</span>
+            <img src="/logo.webp" alt="Haveaspot Logo" class="logo-tile-img logo-tile-img--invert" />
           </div>
           <span class="logo-tile-label">Primary — on brand green</span>
         </div>
         <div class="logo-tile logo-tile--surface">
           <div class="logo-placeholder">
-            <span class="lp-wordmark lp-wordmark--dark">Haveaspot</span>
+            <img src="/logo.webp" alt="Haveaspot Logo" class="logo-tile-img" />
           </div>
           <span class="logo-tile-label">Primary — on light surface</span>
         </div>
@@ -61,7 +61,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="clearspace-demo">
         <div class="cs-outer">
           <div class="cs-inner">
-            <span class="lp-wordmark lp-wordmark--dark">Haveaspot</span>
+            <img src="/logo.webp" alt="Haveaspot Logo" class="cs-logo" />
           </div>
         </div>
         <p class="cs-caption">The dashed border represents the minimum clear space zone</p>
@@ -78,14 +78,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </p>
       <div class="size-row">
         <div class="size-item">
-          <div class="size-demo" style="width: 120px;">
-            <span class="lp-wordmark lp-wordmark--dark" style="font-size: 1rem;">Haveaspot</span>
+          <div class="size-demo size-demo--120">
+            <img src="/logo.webp" alt="Haveaspot Logo" style="height: 24px; width: auto; display: block; object-fit: contain;" />
           </div>
           <span class="size-label">Digital minimum — 120px wide</span>
         </div>
         <div class="size-item">
-          <div class="size-demo" style="width: 60px;">
-            <span class="lp-wordmark lp-wordmark--dark" style="font-size: 0.55rem;">Haveaspot</span>
+          <div class="size-demo size-demo--32">
+            <img src="/favicon.svg" alt="Haveaspot Icon" style="height: 32px; width: 32px; display: block;" />
           </div>
           <span class="size-label">Favicon / icon minimum — 32px</span>
         </div>
@@ -180,15 +180,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     align-items: center;
     justify-content: center;
     min-height: 60px;
+    width: 100%;
   }
-  .lp-wordmark {
-    font-size: 1.75rem;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: -0.03em;
-    line-height: 1;
+  .logo-tile-img {
+    height: 36px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+    max-width: 180px;
   }
-  .lp-wordmark--dark { color: #021300; }
+  .logo-tile-img--invert {
+    filter: brightness(0) invert(1);
+  }
+  .cs-logo {
+    height: 32px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+  }
 
   .logo-tile-label {
     font-size: 0.75rem;
@@ -222,7 +231,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .cs-caption {
     font-size: 0.8rem;
     font-weight: 300;
-    color: rgba(2,19,0,0.5);
+    color: #021300;
   }
 
   .size-row {
@@ -245,10 +254,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     justify-content: center;
     background: #fff;
   }
+  .size-demo--120 { width: 140px; }
+  .size-demo--32  { width: 64px; }
   .size-label {
     font-size: 0.75rem;
     font-weight: 300;
-    color: rgba(2,19,0,0.55);
+    color: #021300;
   }
 
   .dont-grid {
@@ -285,7 +296,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     background: #021300;
     color: #fff;
     border-radius: 6px;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
     transition: background 0.2s ease;
