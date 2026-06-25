@@ -1,0 +1,326 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const primary = [
+  { name: 'Brand Dark',  hex: '#021300', rgb: '2, 19, 0',    usage: 'Primary text, borders, button backgrounds, nav, headings. The backbone of the entire visual system.' },
+  { name: 'Brand Green', hex: '#0AAD0A', rgb: '10, 173, 10', usage: 'Hover states, active accents, CTA button hover, active nav links, focus rings. Used sparingly — action only.' },
+];
+
+const supporting = [
+  { name: 'White',        hex: '#FFFFFF', rgb: '255, 255, 255', usage: 'Page backgrounds, card backgrounds, button text on dark fills.' },
+  { name: 'Surface',      hex: '#F9FAFB', rgb: '249, 250, 251', usage: 'Subtle section backgrounds, search result panels, filter dropdowns.' },
+  { name: 'Border Light', hex: '#E5E7EB', rgb: '229, 231, 235', usage: 'Dividers, structural borders, non-featured card outlines.' },
+  { name: 'Deep Hover',   hex: '#0E491F', rgb: '14, 73, 31',   usage: 'Deep press / active state. Use sparingly as an alternative to Brand Green on hover.' },
+];
+---
+
+<BaseLayout title="Colour Palette" section="colour">
+  <div class="page-hero">
+    <span class="page-num">03 — Colour Palette</span>
+    <h1 class="page-title">Colour Palette</h1>
+    <p class="page-intro">
+      Haveaspot uses a deliberately restrained palette. Two primary colours carry the entire brand —
+      a near-black green and a vivid accent green. Everything else is white and structural neutrals.
+    </p>
+  </div>
+
+  <div class="page-body">
+
+    <!-- Primary -->
+    <div class="block">
+      <h2 class="block-title">Primary Palette</h2>
+      <p class="block-desc">
+        These two colours carry the brand. They appear on every page, in every product.
+      </p>
+      <div class="swatch-grid swatch-grid--primary">
+        {primary.map(c => (
+          <div class="swatch-card swatch-card--primary">
+            <div class="swatch-colour" style={`background: ${c.hex};`}></div>
+            <div class="swatch-info">
+              <h3 class="swatch-name">{c.name}</h3>
+              <div class="swatch-values">
+                <div class="swatch-row"><span class="swatch-key">HEX</span><code class="swatch-val">{c.hex}</code></div>
+                <div class="swatch-row"><span class="swatch-key">RGB</span><code class="swatch-val">{c.rgb}</code></div>
+                <div class="swatch-row"><span class="swatch-key">CSS</span><code class="swatch-val">--color-brand-{c.name.split(' ')[1].toLowerCase()}</code></div>
+              </div>
+              <p class="swatch-usage">{c.usage}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Supporting -->
+    <div class="block">
+      <h2 class="block-title">Supporting Palette</h2>
+      <p class="block-desc">
+        Structural colours that provide depth, separation, and breathing room without competing with the primary palette.
+      </p>
+      <div class="swatch-grid swatch-grid--supporting">
+        {supporting.map(c => (
+          <div class="swatch-card">
+            <div class="swatch-colour swatch-colour--bordered" style={`background: ${c.hex};`}></div>
+            <div class="swatch-info">
+              <h3 class="swatch-name">{c.name}</h3>
+              <div class="swatch-values">
+                <div class="swatch-row"><span class="swatch-key">HEX</span><code class="swatch-val">{c.hex}</code></div>
+                <div class="swatch-row"><span class="swatch-key">RGB</span><code class="swatch-val">{c.rgb}</code></div>
+              </div>
+              <p class="swatch-usage">{c.usage}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Usage Rules -->
+    <div class="block">
+      <h2 class="block-title">Colour Application Rules</h2>
+      <p class="block-desc">How to use the palette correctly in practice.</p>
+      <div class="rules-table">
+        <div class="rule-row rule-row--header">
+          <span>Context</span><span>Colour</span><span>Weight</span>
+        </div>
+        {[
+          ['Headings (H1–H6)',         '#021300', '800 / 700'],
+          ['Body copy',                '#021300', '400'],
+          ['Subtext / descriptions',   '#021300', '300'],
+          ['Metadata, dates, captions','#021300', '300'],
+          ['Links at rest',            '#021300', 'inherited'],
+          ['Links on hover',           '#0AAD0A', 'inherited'],
+          ['Active nav link',          '#0AAD0A', '600'],
+          ['Primary button background','#021300', '—'],
+          ['Primary button hover',     '#0AAD0A', '—'],
+          ['Card borders',             '#021300', '2px solid'],
+          ['Card hover border',        '#0AAD0A', '—'],
+          ['Dividers',                 '#E5E7EB', '—'],
+          ['Page background',          '#FFFFFF',  '—'],
+          ['Subtle surface',           '#F9FAFB',  '—'],
+        ].map(([ctx, colour, weight]) => (
+          <div class="rule-row">
+            <span class="rule-ctx">{ctx}</span>
+            <span class="rule-colour">
+              <span class="rule-dot" style={`background: ${colour}; border: 1px solid ${colour === '#FFFFFF' ? '#E5E7EB' : colour};`}></span>
+              <code>{colour}</code>
+            </span>
+            <span class="rule-weight">{weight}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Do / Don't -->
+    <div class="block">
+      <h2 class="block-title">Colour Do / Don't</h2>
+      <p class="block-desc">The most common colour mistakes to avoid.</p>
+      <div class="dd-grid">
+        <div class="dd-card dd-card--do">
+          <span class="dd-label dd-label--do">✓ Do</span>
+          <div class="dd-example">
+            <p style="color: #021300; font-weight: 300; font-size: 0.95rem;">This is subtext using #021300 at weight 300.</p>
+          </div>
+          <p class="dd-desc">Use <code>#021300</code> at weight 300 for subtext. The lightness comes from the weight, not the colour.</p>
+        </div>
+        <div class="dd-card dd-card--dont">
+          <span class="dd-label dd-label--dont">✗ Don't</span>
+          <div class="dd-example">
+            <p style="color: #374151; font-weight: 400; font-size: 0.95rem;">This is subtext using Tailwind gray-700.</p>
+          </div>
+          <p class="dd-desc">Never use Tailwind greys (<code>#374151</code>, <code>#6B7280</code>) for text. They are off-brand.</p>
+        </div>
+        <div class="dd-card dd-card--do">
+          <span class="dd-label dd-label--do">✓ Do</span>
+          <div class="dd-example" style="display:flex; gap: 0.75rem; align-items:center;">
+            <a style="color: #021300; font-weight: 500; font-size: 0.95rem;">Link at rest</a>
+            <a style="color: #0AAD0A; text-decoration: underline; font-weight: 500; font-size: 0.95rem;">Link on hover</a>
+          </div>
+          <p class="dd-desc">Links are dark at rest, green on hover. Green signals action, not default state.</p>
+        </div>
+        <div class="dd-card dd-card--dont">
+          <span class="dd-label dd-label--dont">✗ Don't</span>
+          <div class="dd-example">
+            <a style="color: #0AAD0A; font-weight: 500; font-size: 0.95rem;">Link that is green by default</a>
+          </div>
+          <p class="dd-desc">Never use green as a default link or text colour. It is reserved for interactive states only.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .swatch-grid--primary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 0;
+  }
+  .swatch-grid--supporting {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .swatch-card {
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .swatch-card--primary {
+    border-width: 2px;
+    border-color: #021300;
+  }
+  .swatch-colour {
+    height: 140px;
+    width: 100%;
+  }
+  .swatch-colour--bordered {
+    height: 80px;
+  }
+  .swatch-info {
+    padding: 1.25rem 1.5rem 1.5rem;
+  }
+  .swatch-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #021300;
+    margin-bottom: 0.75rem;
+  }
+  .swatch-values {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 1rem;
+  }
+  .swatch-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .swatch-key {
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: rgba(2,19,0,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    min-width: 2rem;
+  }
+  .swatch-val {
+    font-size: 0.8rem;
+    font-family: 'Courier New', monospace;
+    color: #021300;
+    background: #F9FAFB;
+    padding: 2px 6px;
+    border-radius: 3px;
+  }
+  .swatch-usage {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #021300;
+    line-height: 1.55;
+  }
+
+  .rules-table {
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .rule-row {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid #E5E7EB;
+    align-items: center;
+    font-size: 0.85rem;
+  }
+  .rule-row:last-child { border-bottom: none; }
+  .rule-row--header {
+    background: #F9FAFB;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(2,19,0,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .rule-ctx { font-weight: 400; color: #021300; }
+  .rule-colour {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .rule-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .rule-colour code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    color: #021300;
+  }
+  .rule-weight { font-weight: 300; color: rgba(2,19,0,0.6); font-size: 0.8rem; }
+
+  .dd-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .dd-card {
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 2px solid transparent;
+  }
+  .dd-card--do   { background: rgba(10,173,10,0.04); border-color: rgba(10,173,10,0.3); }
+  .dd-card--dont { background: rgba(229,62,62,0.04); border-color: rgba(229,62,62,0.2); }
+  .dd-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .dd-label--do   { background: #0AAD0A; color: #fff; }
+  .dd-label--dont { background: #e53e3e; color: #fff; }
+  .dd-example {
+    background: #fff;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+  }
+  .dd-desc {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #021300;
+    line-height: 1.55;
+  }
+  .dd-desc code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    background: rgba(2,19,0,0.06);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  @media (max-width: 700px) {
+    .swatch-grid--primary,
+    .swatch-grid--supporting,
+    .dd-grid { grid-template-columns: 1fr; }
+    .rule-row { grid-template-columns: 1fr 1fr; }
+    .rule-row > span:last-child { display: none; }
+  }
+</style>

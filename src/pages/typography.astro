@@ -1,0 +1,321 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const weights = [
+  { w: 800, name: 'ExtraBold', usage: 'H1, H2, hero headings' },
+  { w: 700, name: 'Bold',      usage: 'H3, H4, card titles, strong emphasis' },
+  { w: 600, name: 'SemiBold',  usage: 'Nav active, footer headings, category labels' },
+  { w: 500, name: 'Medium',    usage: 'Nav links, buttons, inputs, filter chips' },
+  { w: 400, name: 'Regular',   usage: 'Body copy, card descriptions' },
+  { w: 300, name: 'Light',     usage: 'Subtext, metadata, dates, captions' },
+];
+
+const scale = [
+  { name: 'H1 · Hero',       mobile: '2.5rem', tablet: '3.75rem', desktop: '4.75rem', weight: 800, sample: 'A Platform For Every Kind Of Venue' },
+  { name: 'H2 · Section',    mobile: '2rem',   tablet: '2.5rem',  desktop: '3rem',    weight: 800, sample: 'Discover Community Spaces Near You' },
+  { name: 'H3 · Sub-heading',mobile: '1.35rem',tablet: '1.5rem',  desktop: '1.6rem',  weight: 700, sample: 'Simple Tools for Busy Volunteers' },
+  { name: 'H4 · Card Title', mobile: '1.1rem', tablet: '1.2rem',  desktop: '1.25rem', weight: 700, sample: 'Stoke Village Hall, Somerset' },
+  { name: 'Body',            mobile: '1rem',   tablet: '1rem',    desktop: '1rem',    weight: 400, sample: 'From village halls and community centres to sports pavilions and meeting rooms, Haveaspot connects spaces with the people who need them.' },
+  { name: 'Subtext',         mobile: '0.95rem',tablet: '1rem',    desktop: '1rem',    weight: 300, sample: 'Join thousands of venues already using Haveaspot to manage their bookings.' },
+  { name: 'Metadata',        mobile: '13px',   tablet: '14px',    desktop: '14px',    weight: 300, sample: '12 June 2025  ·  Guides for Venues' },
+];
+---
+
+<BaseLayout title="Typography" section="typography">
+  <div class="page-hero">
+    <span class="page-num">04 — Typography</span>
+    <h1 class="page-title">Typography</h1>
+    <p class="page-intro">
+      Poppins is the Haveaspot typeface. A geometric sans-serif with warmth and clarity — it works equally
+      well in bold headlines and fine-print captions. Used consistently across every touchpoint.
+    </p>
+  </div>
+
+  <div class="page-body">
+
+    <!-- Typeface -->
+    <div class="block">
+      <h2 class="block-title">The Typeface — Poppins</h2>
+      <p class="block-desc">Designed by Indian Type Foundry. Available via Google Fonts and @fontsource.</p>
+      <div class="typeface-hero">
+        <p class="tf-specimen">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz</p>
+        <p class="tf-numbers">0 1 2 3 4 5 6 7 8 9</p>
+        <p class="tf-punc">! ? . , : ; ' " ( ) / & % £ @</p>
+      </div>
+      <div class="font-load-code">
+        <p class="code-label">Google Fonts</p>
+        <pre class="code-block"><code>{`<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">`}</code></pre>
+        <p class="code-label" style="margin-top: 1rem;">@fontsource (npm/yarn)</p>
+        <pre class="code-block"><code>{`@import "@fontsource/poppins/300.css";
+@import "@fontsource/poppins/400.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource/poppins/800.css";`}</code></pre>
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Weight Scale -->
+    <div class="block">
+      <h2 class="block-title">Weight Scale</h2>
+      <p class="block-desc">Six weights. Each has a specific role — do not use weights interchangeably.</p>
+      <div class="weight-list">
+        {weights.map(w => (
+          <div class="weight-row">
+            <div class="weight-demo" style={`font-weight: ${w.w};`}>
+              Poppins {w.name}
+            </div>
+            <div class="weight-meta">
+              <span class="weight-num">{w.w}</span>
+              <span class="weight-name">{w.name}</span>
+              <span class="weight-usage">{w.usage}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Type Scale -->
+    <div class="block">
+      <h2 class="block-title">Type Scale</h2>
+      <p class="block-desc">Sizes at mobile, tablet, and desktop breakpoints. All headings use letter-spacing: -0.02em and line-height: 1.1.</p>
+      <div class="scale-list">
+        {scale.map(s => (
+          <div class="scale-item">
+            <div class="scale-meta">
+              <span class="scale-name">{s.name}</span>
+              <div class="scale-sizes">
+                <span><span class="size-label">mob</span> {s.mobile}</span>
+                <span><span class="size-label">tab</span> {s.tablet}</span>
+                <span><span class="size-label">dsk</span> {s.desktop}</span>
+                <span><span class="size-label">wt</span> {s.weight}</span>
+              </div>
+            </div>
+            <p class="scale-sample" style={`font-size: ${s.desktop}; font-weight: ${s.weight}; letter-spacing: ${s.weight >= 700 ? '-0.02em' : 'default'}; line-height: ${s.weight >= 700 ? '1.1' : '1.625'};`}>
+              {s.sample}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Rules -->
+    <div class="block">
+      <h2 class="block-title">Typography Rules</h2>
+      <div class="typo-rules">
+        <div class="typo-rule">
+          <span class="tr-label">Line height</span>
+          <span class="tr-value">Headings: <code>1.1</code> — Body: <code>1.625</code> — Subtext: <code>1.625</code> — Buttons: <code>1</code></span>
+        </div>
+        <div class="typo-rule">
+          <span class="tr-label">Letter spacing</span>
+          <span class="tr-value">Headings: <code>-0.02em</code> — All else: <code>default</code></span>
+        </div>
+        <div class="typo-rule">
+          <span class="tr-label">Colour</span>
+          <span class="tr-value">All text is <code>#021300</code>. Never use grey for body copy or subtext.</span>
+        </div>
+        <div class="typo-rule">
+          <span class="tr-label">Subtext weight</span>
+          <span class="tr-value">Weight 300 (Light) provides visual lightness without changing colour. Never use grey as a substitute.</span>
+        </div>
+        <div class="typo-rule">
+          <span class="tr-label">Tailwind warning</span>
+          <span class="tr-value">Do not use <code>text-gray-*</code> utilities. They produce off-brand greys (#374151, #6B7280).</span>
+        </div>
+        <div class="typo-rule">
+          <span class="tr-label">UK English</span>
+          <span class="tr-value">All copy uses UK English spelling. Colour, not color. Behaviour, not behavior. Centre, not center.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .typeface-hero {
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    margin-bottom: 2rem;
+  }
+  .tf-specimen {
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    font-weight: 600;
+    color: #021300;
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+  }
+  .tf-numbers {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 400;
+    color: #021300;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.1em;
+  }
+  .tf-punc {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(2,19,0,0.5);
+    letter-spacing: 0.08em;
+  }
+
+  .font-load-code { }
+  .code-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(2,19,0,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .code-block {
+    background: #021300;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+  }
+  .code-block code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    white-space: pre;
+  }
+
+  .weight-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .weight-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid #E5E7EB;
+    align-items: center;
+  }
+  .weight-row:last-child { border-bottom: none; }
+  .weight-demo {
+    font-size: 1.25rem;
+    color: #021300;
+  }
+  .weight-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+  }
+  .weight-num {
+    font-weight: 700;
+    color: #021300;
+    min-width: 2rem;
+  }
+  .weight-name {
+    font-weight: 500;
+    color: #021300;
+    min-width: 5rem;
+  }
+  .weight-usage {
+    font-weight: 300;
+    color: rgba(2,19,0,0.55);
+  }
+
+  .scale-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .scale-item {
+    padding: 1.5rem;
+    border-bottom: 1px solid #E5E7EB;
+  }
+  .scale-item:last-child { border-bottom: none; }
+  .scale-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .scale-name {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #0AAD0A;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    min-width: 100px;
+  }
+  .scale-sizes {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: rgba(2,19,0,0.5);
+  }
+  .size-label {
+    font-weight: 600;
+    color: rgba(2,19,0,0.3);
+    margin-right: 0.2rem;
+  }
+  .scale-sample {
+    color: #021300;
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  .typo-rules {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .typo-rule {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #E5E7EB;
+    align-items: start;
+    font-size: 0.875rem;
+  }
+  .typo-rule:last-child { border-bottom: none; }
+  .tr-label {
+    font-weight: 600;
+    color: #021300;
+  }
+  .tr-value {
+    font-weight: 300;
+    color: #021300;
+    line-height: 1.6;
+  }
+  .tr-value code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    background: rgba(2,19,0,0.06);
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-weight: 400;
+  }
+
+  @media (max-width: 700px) {
+    .weight-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .scale-meta { flex-direction: column; gap: 0.25rem; align-items: flex-start; }
+    .typo-rule { grid-template-columns: 1fr; }
+  }
+</style>

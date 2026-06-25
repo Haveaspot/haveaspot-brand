@@ -1,0 +1,313 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const moods = ['Warm', 'Authentic', 'Community-led', 'Natural light', 'Real people', 'Lived-in spaces'];
+
+const doItems = [
+  'Real, candid moments — people using spaces naturally',
+  'Natural or warm artificial light — avoid harsh flash',
+  'Genuine community gatherings — classes, events, celebrations',
+  'Spaces that feel welcoming, accessible, and lived-in',
+  'Diversity of age, background, and purpose',
+  'Outdoor settings that reflect rural and semi-rural Britain',
+];
+
+const dontItems = [
+  'Sterile stock photography — boardrooms, corporate offices',
+  'Overly posed or staged group shots',
+  'Dark, low-contrast, or high-saturation filters',
+  'City-centre, commercial, or high-end venues',
+  'Images where the space looks empty and unwelcoming',
+  'Heavily retouched or unrealistic colour grading',
+];
+---
+
+<BaseLayout title="Imagery" section="imagery">
+  <div class="page-hero">
+    <span class="page-num">05 — Imagery</span>
+    <h1 class="page-title">Imagery</h1>
+    <p class="page-intro">
+      Haveaspot imagery is warm, authentic, and community-led. We show real people in real spaces —
+      the kind of moments that remind you why community venues matter.
+    </p>
+  </div>
+
+  <div class="page-body">
+
+    <!-- Art Direction -->
+    <div class="block">
+      <h2 class="block-title">Art Direction</h2>
+      <p class="block-desc">
+        Every image should feel like it was taken by a friend who happened to be there — not commissioned.
+        We celebrate the imperfectly perfect: the bunting that's slightly lopsided, the teacups that don't match,
+        the yoga class where everyone is at a different stage. This is real life, and that's the point.
+      </p>
+      <div class="mood-tags">
+        {moods.map(m => <span class="mood-tag">{m}</span>)}
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Example Images (using About site as reference) -->
+    <div class="block">
+      <h2 class="block-title">On-Brand Examples</h2>
+      <p class="block-desc">
+        The following images from the Haveaspot About site represent the intended visual direction.
+        These will be replaced with commissioned photography over time.
+      </p>
+      <div class="image-grid">
+        <div class="image-card">
+          <img
+            src="https://about.haveaspot.com/images/hero-image.webp"
+            alt="Haveaspot hero — community venue"
+            class="brand-img"
+            loading="lazy"
+          />
+          <div class="image-caption">
+            <span class="caption-tick">✓</span>
+            <span>Welcoming venue interior, natural setting, accessible feel</span>
+          </div>
+        </div>
+        <div class="image-card">
+          <img
+            src="https://about.haveaspot.com/images/managed-onboarding.webp"
+            alt="Haveaspot managed onboarding"
+            class="brand-img"
+            loading="lazy"
+          />
+          <div class="image-caption">
+            <span class="caption-tick">✓</span>
+            <span>Genuine human interaction, warm tone, relatable scenario</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Do / Don't -->
+    <div class="block">
+      <h2 class="block-title">Photography Do / Don't</h2>
+      <div class="photo-rules">
+        <div class="photo-col photo-col--do">
+          <div class="pr-header">
+            <span class="pr-badge pr-badge--do">✓ Do</span>
+          </div>
+          <ul class="pr-list">
+            {doItems.map(item => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div class="photo-col photo-col--dont">
+          <div class="pr-header">
+            <span class="pr-badge pr-badge--dont">✗ Don't</span>
+          </div>
+          <ul class="pr-list">
+            {dontItems.map(item => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Treatment -->
+    <div class="block">
+      <h2 class="block-title">Image Treatment</h2>
+      <p class="block-desc">How images should be cropped, bordered, and displayed in the UI.</p>
+      <div class="treatment-grid">
+        <div class="treatment-item">
+          <div class="treatment-demo">
+            <img
+              src="https://about.haveaspot.com/images/hero-image.webp"
+              alt="Correct image treatment"
+              style="width:100%; height:200px; object-fit:cover; border-radius:12px; border:2px solid #021300; display:block;"
+              loading="lazy"
+            />
+          </div>
+          <p class="treatment-label"><strong>Cards and featured images</strong> — 12px border-radius, 2px solid #021300 border, object-fit: cover.</p>
+        </div>
+        <div class="treatment-item">
+          <div class="treatment-demo">
+            <img
+              src="https://about.haveaspot.com/images/hero-image.webp"
+              alt="Hero image treatment"
+              style="width:100%; height:200px; object-fit:cover; border-radius:0; display:block;"
+              loading="lazy"
+            />
+          </div>
+          <p class="treatment-label"><strong>Hero / full-bleed images</strong> — No border-radius, no border. Image bleeds to the container edge.</p>
+        </div>
+      </div>
+      <div class="treatment-rules">
+        <div class="tr-row"><span class="tr-key">Border radius</span><span class="tr-val">12px for cards; 0 for full-bleed heroes</span></div>
+        <div class="tr-row"><span class="tr-key">Border</span><span class="tr-val">2px solid #021300 on cards and listing images</span></div>
+        <div class="tr-row"><span class="tr-key">Object fit</span><span class="tr-val">cover — never distort or letterbox</span></div>
+        <div class="tr-row"><span class="tr-key">Hover</span><span class="tr-val">Subtle box-shadow lift on card images; no scale</span></div>
+        <div class="tr-row"><span class="tr-key">Aspect ratio</span><span class="tr-val">16:9 for listing cards; 2:1 for hero banners</span></div>
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- AI Image Prompt Reference -->
+    <div class="block">
+      <h2 class="block-title">AI Image Generation Reference</h2>
+      <p class="block-desc">
+        When commissioning AI-generated imagery for prototypes or placeholders, use the following
+        as a style reference prompt.
+      </p>
+      <div class="prompt-card">
+        <p class="prompt-label">Reference prompt</p>
+        <p class="prompt-text">
+          "A warm, candid photograph inside a traditional UK village hall or community centre.
+          Natural daylight streaming through tall windows. Real people — volunteers, families,
+          community groups — engaged in everyday activities. Slightly imperfect, lived-in feel.
+          Earthy tones, soft shadows, no filters. Editorial style, 35mm film aesthetic."
+        </p>
+      </div>
+    </div>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .mood-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .mood-tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #021300;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 20px;
+    padding: 4px 14px;
+  }
+
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+  .image-card { display: flex; flex-direction: column; gap: 0.75rem; }
+  .brand-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #021300;
+  }
+  .image-caption {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #021300;
+    line-height: 1.5;
+  }
+  .caption-tick { color: #0AAD0A; font-weight: 700; flex-shrink: 0; }
+
+  .photo-rules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  .photo-col {
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 2px solid transparent;
+  }
+  .photo-col--do   { background: rgba(10,173,10,0.04); border-color: rgba(10,173,10,0.25); }
+  .photo-col--dont { background: rgba(229,62,62,0.04); border-color: rgba(229,62,62,0.2); }
+  .pr-header { margin-bottom: 1rem; }
+  .pr-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .pr-badge--do   { background: #0AAD0A; color: #fff; }
+  .pr-badge--dont { background: #e53e3e; color: #fff; }
+  .pr-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .pr-list li {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: #021300;
+    line-height: 1.5;
+    padding-left: 1rem;
+    position: relative;
+  }
+  .photo-col--do .pr-list li::before   { content: '✓'; position: absolute; left: 0; color: #0AAD0A; font-weight: 700; }
+  .photo-col--dont .pr-list li::before { content: '✗'; position: absolute; left: 0; color: #e53e3e; font-weight: 700; }
+
+  .treatment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .treatment-item { display: flex; flex-direction: column; gap: 0.75rem; }
+  .treatment-label {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: #021300;
+    line-height: 1.55;
+  }
+  .treatment-label strong { font-weight: 600; }
+
+  .treatment-rules {
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .tr-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid #E5E7EB;
+    font-size: 0.85rem;
+    align-items: center;
+  }
+  .tr-row:last-child { border-bottom: none; }
+  .tr-key { font-weight: 600; color: #021300; }
+  .tr-val { font-weight: 300; color: #021300; }
+
+  .prompt-card {
+    background: #021300;
+    border-radius: 12px;
+    padding: 2rem 2.5rem;
+  }
+  .prompt-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #0AAD0A;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+  .prompt-text {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  @media (max-width: 700px) {
+    .image-grid, .photo-rules, .treatment-grid { grid-template-columns: 1fr; }
+    .tr-row { grid-template-columns: 1fr; }
+  }
+</style>

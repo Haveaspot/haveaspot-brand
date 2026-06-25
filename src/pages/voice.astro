@@ -1,0 +1,308 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const traits = [
+  { name: 'Warm',         desc: 'We talk to people like a knowledgeable local who genuinely wants to help — not a faceless tech company. We care about the people behind every booking.' },
+  { name: 'Plain-spoken', desc: 'We say what we mean in the fewest words. No jargon, no buzzwords. If a 12-year-old would not understand a sentence, rewrite it.' },
+  { name: 'Confident',    desc: 'We know what we\'re for and who we\'re built for. We make clear, direct statements. We don\'t hedge with "we believe" or "we think we might".' },
+  { name: 'Human',        desc: 'We use contractions (we\'re, it\'s, you\'ll). We write in the active voice. We acknowledge that the people using our platform are real people with real challenges.' },
+  { name: 'Purposeful',   desc: 'Every piece of writing has a job to do. We connect the feature to the benefit and the benefit to the bigger purpose — helping community spaces thrive.' },
+];
+
+const examples = [
+  {
+    context: 'CTA button',
+    dont: 'Submit your venue listing',
+    do:   'List your venue — it\'s free',
+  },
+  {
+    context: 'Error message',
+    dont: 'An unexpected error has occurred. Please contact support.',
+    do:   'Something went wrong on our end. Try again — if it keeps happening, drop us a message.',
+  },
+  {
+    context: 'Empty state',
+    dont: 'No results were found matching your query.',
+    do:   'No spaces found here yet. Try a nearby town or a different date.',
+  },
+  {
+    context: 'Onboarding prompt',
+    dont: 'Complete your venue profile to optimise your listing performance.',
+    do:   'Add a few more details and your venue will start appearing in local searches.',
+  },
+  {
+    context: 'Confirmation email',
+    dont: 'Your booking has been confirmed. Transaction reference: #84729.',
+    do:   'You\'re all booked in! We\'ve sent your confirmation to your email. See you there.',
+  },
+  {
+    context: 'Free pricing callout',
+    dont: 'Zero-cost SaaS solution for community venue operators.',
+    do:   'Free for venues, always. No catch.',
+  },
+];
+
+const avoidWords = [
+  'leverage', 'synergy', 'ecosystem', 'solution', 'utilise', 'optimise', 'facilitate',
+  'streamline', 'seamless', 'empower (as jargon)', 'robust', 'scalable', 'best-in-class',
+];
+---
+
+<BaseLayout title="Voice & Tone" section="voice">
+  <div class="page-hero">
+    <span class="page-num">06 — Voice & Tone</span>
+    <h1 class="page-title">Voice & Tone</h1>
+    <p class="page-intro">
+      The Haveaspot voice is consistent everywhere. The tone adjusts to context — warmer in moments of
+      delight, steadier in moments of error — but the character never changes.
+    </p>
+  </div>
+
+  <div class="page-body">
+
+    <!-- Brand Personality -->
+    <div class="block">
+      <h2 class="block-title">Brand Personality</h2>
+      <p class="block-desc">
+        Think of the Haveaspot voice as a friendly expert — someone who knows exactly how things work
+        and genuinely wants to help. Not a faceless tech company. Not a stuffy institution. A real person
+        who happens to know a lot about community spaces.
+      </p>
+      <div class="personality-line">
+        <span class="pl-item pl-item--active">Warm</span>
+        <span class="pl-sep">not</span>
+        <span class="pl-item pl-item--inactive">Sentimental</span>
+        <span class="pl-divider">|</span>
+        <span class="pl-item pl-item--active">Confident</span>
+        <span class="pl-sep">not</span>
+        <span class="pl-item pl-item--inactive">Arrogant</span>
+        <span class="pl-divider">|</span>
+        <span class="pl-item pl-item--active">Plain-spoken</span>
+        <span class="pl-sep">not</span>
+        <span class="pl-item pl-item--inactive">Dumbed down</span>
+        <span class="pl-divider">|</span>
+        <span class="pl-item pl-item--active">Purposeful</span>
+        <span class="pl-sep">not</span>
+        <span class="pl-item pl-item--inactive">Preachy</span>
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Traits -->
+    <div class="block">
+      <h2 class="block-title">Voice Characteristics</h2>
+      <p class="block-desc">Five characteristics that define how Haveaspot sounds in every context.</p>
+      <div class="traits-list">
+        {traits.map((t, i) => (
+          <div class="trait-card">
+            <span class="trait-num">0{i + 1}</span>
+            <div>
+              <h3 class="trait-name">{t.name}</h3>
+              <p class="trait-desc">{t.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Before / After Examples -->
+    <div class="block">
+      <h2 class="block-title">In Practice — Rewrites</h2>
+      <p class="block-desc">How the voice applies across real UI contexts.</p>
+      <div class="examples-list">
+        {examples.map(ex => (
+          <div class="example-item">
+            <span class="example-context">{ex.context}</span>
+            <div class="example-pair">
+              <div class="ex-card ex-card--dont">
+                <span class="ex-badge ex-badge--dont">✗ Before</span>
+                <p class="ex-text">{ex.dont}</p>
+              </div>
+              <div class="ex-card ex-card--do">
+                <span class="ex-badge ex-badge--do">✓ After</span>
+                <p class="ex-text">{ex.do}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Writing Rules -->
+    <div class="block">
+      <h2 class="block-title">Writing Rules</h2>
+      <div class="writing-rules">
+        {[
+          ['Contractions',    'Use them freely — we\'re, it\'s, you\'ll, don\'t. They make us sound human.'],
+          ['Active voice',    'We do things. Things don\'t happen to us. "Book your space" not "Your space can be booked."'],
+          ['Sentence length', 'Keep sentences short. One idea per sentence. Use a full stop more often than you think.'],
+          ['Spelling',        'UK English throughout. Colour, behaviour, centre, organise, recognise.'],
+          ['Numbers',         'Write one through nine as words. Use numerals for 10 and above, and always for prices, percentages, and data.'],
+          ['Buttons & CTAs',  'Lead with a verb. Be specific. "List your venue" not "Get started". "Find a space" not "Search".'],
+          ['Headings',        'No full stops on headlines or headings. Save them for sentences.'],
+          ['Exclamation marks','One per page, maximum. Reserve for genuine moments of delight — confirmations, milestones.'],
+        ].map(([rule, detail]) => (
+          <div class="wr-row">
+            <span class="wr-rule">{rule}</span>
+            <span class="wr-detail">{detail}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Words to Avoid -->
+    <div class="block">
+      <h2 class="block-title">Words to Avoid</h2>
+      <p class="block-desc">These words make us sound like every other tech company. Avoid them.</p>
+      <div class="avoid-tags">
+        {avoidWords.map(w => <span class="avoid-tag">{w}</span>)}
+      </div>
+    </div>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .personality-line {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 0.75rem;
+    padding: 1.5rem 2rem;
+    background: #F9FAFB;
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+  }
+  .pl-item--active   { font-weight: 700; color: #021300; font-size: 0.95rem; }
+  .pl-item--inactive { font-weight: 300; color: rgba(2,19,0,0.4); font-size: 0.95rem; text-decoration: line-through; }
+  .pl-sep   { font-size: 0.75rem; font-weight: 400; color: rgba(2,19,0,0.35); font-style: italic; }
+  .pl-divider { color: #E5E7EB; font-size: 1.2rem; margin: 0 0.25rem; }
+
+  .traits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .trait-card {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem 1.75rem;
+    border: 2px solid #021300;
+    border-radius: 12px;
+    align-items: flex-start;
+    transition: border-color 0.2s ease;
+  }
+  .trait-card:hover { border-color: #0AAD0A; }
+  .trait-num {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #0AAD0A;
+    letter-spacing: 0.08em;
+    padding-top: 0.15rem;
+    min-width: 1.5rem;
+  }
+  .trait-name {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #021300;
+    margin-bottom: 0.35rem;
+  }
+  .trait-desc {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: #021300;
+    line-height: 1.65;
+  }
+
+  .examples-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .example-item { display: flex; flex-direction: column; gap: 0.6rem; }
+  .example-context {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(2,19,0,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .example-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .ex-card {
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    border: 2px solid transparent;
+  }
+  .ex-card--dont { background: rgba(229,62,62,0.04); border-color: rgba(229,62,62,0.2); }
+  .ex-card--do   { background: rgba(10,173,10,0.04);  border-color: rgba(10,173,10,0.25); }
+  .ex-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 1px 7px;
+    border-radius: 3px;
+    margin-bottom: 0.65rem;
+  }
+  .ex-badge--dont { background: #e53e3e; color: #fff; }
+  .ex-badge--do   { background: #0AAD0A; color: #fff; }
+  .ex-text {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #021300;
+    line-height: 1.6;
+  }
+
+  .writing-rules {
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .wr-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 1rem;
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid #E5E7EB;
+    font-size: 0.875rem;
+    align-items: start;
+  }
+  .wr-row:last-child { border-bottom: none; }
+  .wr-rule   { font-weight: 600; color: #021300; }
+  .wr-detail { font-weight: 300; color: #021300; line-height: 1.6; }
+
+  .avoid-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .avoid-tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #e53e3e;
+    background: rgba(229,62,62,0.06);
+    border: 1px solid rgba(229,62,62,0.2);
+    border-radius: 20px;
+    padding: 4px 14px;
+    text-decoration: line-through;
+  }
+
+  @media (max-width: 700px) {
+    .example-pair { grid-template-columns: 1fr; }
+    .wr-row { grid-template-columns: 1fr; }
+    .personality-line { flex-direction: column; align-items: flex-start; }
+    .pl-divider { display: none; }
+  }
+</style>

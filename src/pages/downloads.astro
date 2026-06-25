@@ -1,0 +1,294 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const assetGroups = [
+  {
+    title: 'Logo Files',
+    desc: 'Master logo files in all approved formats. Always use these — never recreate the logo in type.',
+    assets: [
+      { name: 'Primary Logo — Dark',    formats: ['SVG', 'PNG', 'PDF'], note: 'White wordmark for dark and coloured backgrounds' },
+      { name: 'Primary Logo — Light',   formats: ['SVG', 'PNG', 'PDF'], note: 'Dark wordmark for white and light backgrounds' },
+      { name: 'Icon / Mark Only',       formats: ['SVG', 'PNG'],        note: 'For favicon, app icon, and small-format use' },
+      { name: 'Logo — Mono White',      formats: ['SVG', 'PNG'],        note: 'Single-colour white for print and embossing' },
+      { name: 'Logo — Mono Dark',       formats: ['SVG', 'PNG'],        note: 'Single-colour dark for print and embossing' },
+    ],
+  },
+  {
+    title: 'Colour Swatches',
+    desc: 'Brand colour swatches for design tools.',
+    assets: [
+      { name: 'Figma Colour Styles',    formats: ['Figma'],             note: 'Ready-to-import Figma library' },
+      { name: 'Adobe ASE Swatches',     formats: ['ASE'],               note: 'Compatible with Illustrator, Photoshop, InDesign' },
+      { name: 'CSS Variables',          formats: ['CSS'],               note: 'Copy-paste token block — see UI & Components section' },
+    ],
+  },
+  {
+    title: 'Typography',
+    desc: 'Poppins is available via Google Fonts and @fontsource. No download required for web use.',
+    assets: [
+      { name: 'Poppins — Google Fonts', formats: ['Web link'],          note: 'fonts.google.com/specimen/Poppins' },
+      { name: 'Poppins — @fontsource',  formats: ['npm / yarn'],        note: '@fontsource/poppins' },
+    ],
+  },
+  {
+    title: 'Brand Deck & Guidelines',
+    desc: 'Presentation-ready brand materials for agencies and partners.',
+    assets: [
+      { name: 'Brand Guidelines (this site)', formats: ['Web'],         note: 'brand.haveaspot.com' },
+      { name: 'BRAND.md — Developer Reference', formats: ['Markdown'],  note: 'github.com/Haveaspot/haveaspot-brand' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Downloads" section="downloads">
+  <div class="page-hero">
+    <span class="page-num">08 — Downloads</span>
+    <h1 class="page-title">Downloads</h1>
+    <p class="page-intro">
+      All brand assets are stored in the Haveaspot Google Drive asset library. Use the files from
+      this library only — never export, recreate, or alter brand assets independently.
+    </p>
+  </div>
+
+  <div class="page-body">
+
+    <!-- Master CTA -->
+    <div class="block">
+      <div class="master-cta">
+        <div class="mc-left">
+          <div class="mc-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="mc-title">Asset Library</h2>
+            <p class="mc-desc">All brand assets in one place. Request access if you need it.</p>
+          </div>
+        </div>
+        <a
+          href="https://drive.google.com/drive/u/0/folders/1gzTSBvjuhShy0lzH08Hji2u7Y7o_Stch"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mc-btn"
+        >
+          Open Google Drive
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Asset Groups -->
+    {assetGroups.map(group => (
+      <div class="block">
+        <h2 class="block-title">{group.title}</h2>
+        <p class="block-desc">{group.desc}</p>
+        <div class="asset-list">
+          {group.assets.map(asset => (
+            <div class="asset-row">
+              <div class="asset-info">
+                <span class="asset-name">{asset.name}</span>
+                <span class="asset-note">{asset.note}</span>
+              </div>
+              <div class="asset-formats">
+                {asset.formats.map(f => <span class="format-tag">{f}</span>)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    <hr class="section-rule" />
+
+    <!-- Usage Policy -->
+    <div class="block">
+      <h2 class="block-title">Usage & Permissions</h2>
+      <div class="policy-list">
+        {[
+          ['Internal use',    'All Haveaspot team members may access and use brand assets for business purposes.'],
+          ['Agency partners', 'Approved agencies may access assets for active Haveaspot projects. Do not share with third parties.'],
+          ['External use',    'Any external use of the Haveaspot logo or brand must be approved by the founding team before publication.'],
+          ['Alterations',     'Brand assets must not be altered, recoloured, distorted, or recreated. Use master files only.'],
+          ['Requesting access','Email the team to request access to the asset library or to report an incorrect usage.'],
+        ].map(([k, v]) => (
+          <div class="policy-row">
+            <span class="policy-key">{k}</span>
+            <span class="policy-val">{v}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Developer Reference -->
+    <div class="block">
+      <h2 class="block-title">Developer Reference</h2>
+      <p class="block-desc">The full developer brand guide lives alongside this site as a Markdown file in GitHub.</p>
+      <a
+        href="https://github.com/Haveaspot/haveaspot-brand/blob/main/BRAND.md"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="gh-link"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.28-.01-1.03-.01-2.03-3.34.72-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3.01-.4c1.02.01 2.05.14 3.01.4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.66.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.81 5.63-5.48 5.92.43.37.81 1.1.81 2.22 0 1.6-.01 2.9-.01 3.29 0 .32.21.7.82.58C20.56 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
+        </svg>
+        View BRAND.md on GitHub
+      </a>
+    </div>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .master-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem 2.5rem;
+    background: #021300;
+    border-radius: 12px;
+    flex-wrap: wrap;
+  }
+  .mc-left {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+  .mc-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(10,173,10,0.15);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0AAD0A;
+    flex-shrink: 0;
+  }
+  .mc-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.2rem;
+  }
+  .mc-desc {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.6);
+  }
+  .mc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    height: 44px;
+    padding: 0 1.5rem;
+    background: #0AAD0A;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+    flex-shrink: 0;
+  }
+  .mc-btn:hover { background: #0E491F; }
+
+  .asset-list {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .asset-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #E5E7EB;
+    flex-wrap: wrap;
+  }
+  .asset-row:last-child { border-bottom: none; }
+  .asset-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+  .asset-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #021300;
+  }
+  .asset-note {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: rgba(2,19,0,0.5);
+  }
+  .asset-formats {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+  .format-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #021300;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 4px;
+    padding: 2px 7px;
+    letter-spacing: 0.05em;
+  }
+
+  .policy-list {
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .policy-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 1rem;
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid #E5E7EB;
+    font-size: 0.875rem;
+    align-items: start;
+  }
+  .policy-row:last-child { border-bottom: none; }
+  .policy-key { font-weight: 600; color: #021300; }
+  .policy-val { font-weight: 300; color: #021300; line-height: 1.6; }
+
+  .gh-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    height: 44px;
+    padding: 0 1.5rem;
+    background: #021300;
+    color: #fff;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+  .gh-link:hover { background: #0AAD0A; }
+
+  @media (max-width: 700px) {
+    .master-cta { flex-direction: column; align-items: flex-start; }
+    .policy-row { grid-template-columns: 1fr; }
+  }
+</style>

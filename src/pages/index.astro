@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sections = [
+  { num: '01', title: 'Brand Foundation', desc: 'Mission, vision, values and brand positioning.', href: '/foundation' },
+  { num: '02', title: 'Logo System',      desc: 'Logo variants, clear space and usage rules.',   href: '/logo' },
+  { num: '03', title: 'Colour Palette',   desc: 'Primary and supporting colours with usage guidance.', href: '/colour' },
+  { num: '04', title: 'Typography',       desc: 'Poppins type system, weights, sizes and hierarchy.', href: '/typography' },
+  { num: '05', title: 'Imagery',          desc: 'Photography style, mood and art direction.',    href: '/imagery' },
+  { num: '06', title: 'Voice & Tone',     desc: 'How we write, what we say and how we say it.', href: '/voice' },
+  { num: '07', title: 'UI & Components',  desc: 'Design tokens, buttons, cards and developer reference.', href: '/components' },
+  { num: '08', title: 'Downloads',        desc: 'Logos, colour swatches, fonts and brand assets.', href: '/downloads' },
+];
+---
+
+<BaseLayout title="Overview" section="index">
+  <div class="home-hero">
+    <div class="home-hero-inner">
+      <p class="home-eyebrow">Brand Guidelines</p>
+      <h1 class="home-heading">The Haveaspot Brand</h1>
+      <p class="home-intro">
+        This is the single source of truth for how the Haveaspot brand looks, speaks, and behaves.
+        Use it to build consistent, on-brand experiences across every product and touchpoint.
+      </p>
+      <div class="home-meta">
+        <span>Version 1.0</span>
+        <span class="meta-dot">·</span>
+        <span>2025</span>
+        <span class="meta-dot">·</span>
+        <span>Haveaspot Ltd</span>
+      </div>
+    </div>
+    <div class="home-hero-rule"></div>
+  </div>
+
+  <div class="home-grid-wrapper">
+    <ul class="home-grid">
+      {sections.map(s => (
+        <li>
+          <a href={s.href} class="home-card">
+            <span class="home-card-num">{s.num}</span>
+            <h2 class="home-card-title">{s.title}</h2>
+            <p class="home-card-desc">{s.desc}</p>
+            <span class="home-card-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .home-hero {
+    background: #021300;
+    padding: 6rem 4rem 4rem;
+  }
+  .home-hero-inner {
+    max-width: 680px;
+  }
+  .home-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #0AAD0A;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 1.25rem;
+  }
+  .home-heading {
+    font-size: clamp(3rem, 5vw, 4.75rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+  .home-intro {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 48rem;
+  }
+  .home-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.35);
+  }
+  .meta-dot { color: rgba(255,255,255,0.2); }
+  .home-hero-rule {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 3rem;
+  }
+
+  .home-grid-wrapper {
+    padding: 3.5rem 4rem 5rem;
+  }
+  .home-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    max-width: 900px;
+  }
+  .home-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    border: 2px solid #021300;
+    border-radius: 12px;
+    background: #fff;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    position: relative;
+  }
+  .home-card:hover {
+    border-color: #0AAD0A;
+    transform: translateY(-2px);
+  }
+  .home-card-num {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #0AAD0A;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.85rem;
+  }
+  .home-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #021300;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+  .home-card-desc {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: #021300;
+    line-height: 1.6;
+    flex: 1;
+  }
+  .home-card-arrow {
+    margin-top: 1.5rem;
+    color: #021300;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-flex;
+  }
+  .home-card:hover .home-card-arrow {
+    color: #0AAD0A;
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 700px) {
+    .home-hero { padding: 3rem 1.5rem 2.5rem; }
+    .home-grid-wrapper { padding: 2.5rem 1.5rem 3rem; }
+    .home-grid { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,101 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  section?: string;
+  description?: string;
+}
+
+const { title, section = '', description = 'Haveaspot Brand Guidelines — the single source of truth for our brand.' } = Astro.props;
+
+const nav = [
+  { id: 'index',      label: 'Overview',        href: '/',            num: '00' },
+  { id: 'foundation', label: 'Brand Foundation', href: '/foundation',  num: '01' },
+  { id: 'logo',       label: 'Logo System',      href: '/logo',        num: '02' },
+  { id: 'colour',     label: 'Colour Palette',   href: '/colour',      num: '03' },
+  { id: 'typography', label: 'Typography',        href: '/typography',  num: '04' },
+  { id: 'imagery',    label: 'Imagery',           href: '/imagery',     num: '05' },
+  { id: 'voice',      label: 'Voice & Tone',      href: '/voice',       num: '06' },
+  { id: 'components', label: 'UI & Components',   href: '/components',  num: '07' },
+  { id: 'downloads',  label: 'Downloads',         href: '/downloads',   num: '08' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex" />
+    <title>{title} — Haveaspot Brand</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <!-- Mobile top bar -->
+    <div class="mobile-bar">
+      <span class="mobile-wordmark">Haveaspot</span>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <div class="sidebar-logo">
+          <a href="/" class="logo-link">
+            <span class="logo-wordmark">Haveaspot</span>
+            <span class="logo-tag">Brand Guidelines</span>
+          </a>
+        </div>
+
+        <nav class="sidebar-nav" aria-label="Brand sections">
+          {nav.map(item => (
+            <a
+              href={item.href}
+              class={`nav-item${section === item.id ? ' is-active' : ''}`}
+            >
+              <span class="nav-num">{item.num}</span>
+              <span class="nav-label">{item.label}</span>
+            </a>
+          ))}
+        </nav>
+
+        <div class="sidebar-footer">
+          <span>v1.0 · 2025</span>
+          <span>© Haveaspot Ltd</span>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Main content -->
+    <main class="content">
+      <slot />
+    </main>
+
+    <script is:inline>
+      const btn     = document.getElementById('mobile-menu-btn');
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      function toggle() {
+        sidebar.classList.toggle('is-open');
+        overlay.classList.toggle('is-visible');
+      }
+      if (btn)     btn.addEventListener('click', toggle);
+      if (overlay) overlay.addEventListener('click', toggle);
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,498 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="UI & Components" section="components">
+  <div class="page-hero">
+    <span class="page-num">07 — UI & Components</span>
+    <h1 class="page-title">UI & Components</h1>
+    <p class="page-intro">
+      A complete developer reference — design tokens, component CSS, and interaction states.
+      Copy the token block into your global stylesheet and use the component snippets as the starting point
+      for every UI element.
+    </p>
+  </div>
+
+  <div class="page-body">
+
+    <!-- Tokens -->
+    <div class="block">
+      <h2 class="block-title">Design Tokens</h2>
+      <p class="block-desc">
+        Paste this block at the top of your global stylesheet. Reference these variables throughout —
+        never hardcode hex values in component styles.
+      </p>
+      <div class="code-file">
+        <div class="code-file-bar">
+          <span class="code-file-name">globals.css</span>
+          <button class="copy-btn" data-copy="tokens">Copy</button>
+        </div>
+        <pre class="code-block" id="tokens"><code>{`:root {
+  /* ── Brand Colours ── */
+  --color-brand-dark:    #021300;   /* primary text, borders, button bg */
+  --color-brand-green:   #0AAD0A;   /* hover, active, accent */
+  --color-brand-hover:   #0E491F;   /* deep hover (use sparingly) */
+  --color-white:         #FFFFFF;
+  --color-surface:       #F9FAFB;   /* subtle backgrounds */
+  --color-border-light:  #E5E7EB;   /* dividers, non-featured borders */
+
+  /* ── Typography ── */
+  --font-family:           'Poppins', system-ui, sans-serif;
+  --font-weight-extrabold: 800;
+  --font-weight-bold:      700;
+  --font-weight-semibold:  600;
+  --font-weight-medium:    500;
+  --font-weight-regular:   400;
+  --font-weight-light:     300;
+
+  /* ── Spacing ── */
+  --spacing-section-sm:   4rem;
+  --spacing-section-lg:   6rem;
+  --spacing-header-gap:   3rem;
+  --spacing-subtext-gap:  1.5rem;
+
+  /* ── Radii ── */
+  --radius-card:    12px;
+  --radius-button:   6px;
+  --radius-input:    6px;
+  --radius-pill:    20px;
+
+  /* ── Transitions ── */
+  --transition-base: 0.2s ease;
+}`}</code></pre>
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Buttons -->
+    <div class="block">
+      <h2 class="block-title">Buttons</h2>
+      <p class="block-desc">Two variants only. Height is always 44px. Font weight 500. Border-radius 6px.</p>
+
+      <div class="component-row">
+        <div class="component-preview">
+          <button class="demo-btn-primary">Primary Button</button>
+          <button class="demo-btn-primary" style="background:#0AAD0A;">Primary Hover</button>
+          <button class="demo-btn-primary" style="opacity:0.4;cursor:not-allowed;">Disabled</button>
+        </div>
+        <div class="component-states">
+          <div class="state-row"><span class="state-label">Default</span><span class="state-val">bg #021300, text white</span></div>
+          <div class="state-row"><span class="state-label">Hover</span><span class="state-val">bg #0AAD0A</span></div>
+          <div class="state-row"><span class="state-label">Focus</span><span class="state-val">outline: 2px solid #0AAD0A</span></div>
+          <div class="state-row"><span class="state-label">Active</span><span class="state-val">bg #0AAD0A</span></div>
+          <div class="state-row"><span class="state-label">Disabled</span><span class="state-val">opacity 0.4, pointer-events: none</span></div>
+        </div>
+      </div>
+
+      <div class="code-file" style="margin-top:1.5rem;">
+        <div class="code-file-bar">
+          <span class="code-file-name">.btn-primary</span>
+          <button class="copy-btn" data-copy="btn-primary">Copy</button>
+        </div>
+        <pre class="code-block" id="btn-primary"><code>{`.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 1.5rem;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  color: #ffffff;
+  background-color: var(--color-brand-dark);
+  border: none;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color var(--transition-base);
+}
+.btn-primary:hover         { background-color: var(--color-brand-green); }
+.btn-primary:focus-visible { outline: 2px solid var(--color-brand-green); outline-offset: 2px; }
+.btn-primary:active        { background-color: var(--color-brand-green); }
+.btn-primary:disabled      { opacity: 0.4; cursor: not-allowed; pointer-events: none; }`}</code></pre>
+      </div>
+
+      <div class="component-row" style="margin-top:2rem;">
+        <div class="component-preview">
+          <button class="demo-btn-secondary">Secondary Button</button>
+          <button class="demo-btn-secondary" style="background:#0AAD0A;color:#fff;border-color:#0AAD0A;">Hover</button>
+        </div>
+      </div>
+
+      <div class="code-file" style="margin-top:1rem;">
+        <div class="code-file-bar">
+          <span class="code-file-name">.btn-secondary</span>
+        </div>
+        <pre class="code-block"><code>{`.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 1.5rem;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-brand-dark);
+  background-color: transparent;
+  border: 1px solid var(--color-brand-dark);
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-base);
+}
+.btn-secondary:hover  { background-color: var(--color-brand-green); color: #fff; border-color: var(--color-brand-green); }
+.btn-secondary:focus-visible { outline: 2px solid var(--color-brand-green); outline-offset: 2px; }
+.btn-secondary:disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none; }`}</code></pre>
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Card -->
+    <div class="block">
+      <h2 class="block-title">Venue / Listing Card</h2>
+      <p class="block-desc">2px dark border, 12px radius, lifts on hover with green border.</p>
+      <div class="component-preview" style="max-width:300px;">
+        <div class="demo-card">
+          <div class="demo-card-img"></div>
+          <div class="demo-card-body">
+            <h4 class="demo-card-title">Stoke Village Hall</h4>
+            <p class="demo-card-meta">From £12/hr · Somerset</p>
+          </div>
+        </div>
+      </div>
+      <div class="code-file" style="margin-top:1.5rem;">
+        <div class="code-file-bar">
+          <span class="code-file-name">.card</span>
+        </div>
+        <pre class="code-block"><code>{`.card {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-brand-dark);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+.card:hover {
+  border-color: var(--color-brand-green);
+  transform: translateY(-2px);
+}
+.card__image { width: 100%; height: 240px; object-fit: cover; display: block; margin-bottom: 1rem; }
+.card__title { font-weight: 700; font-size: 1.1rem; color: var(--color-brand-dark); line-height: 1.2; }
+.card__meta  { font-weight: 300; font-size: 14px; color: var(--color-brand-dark); margin-top: 0.25rem; }`}</code></pre>
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Input -->
+    <div class="block">
+      <h2 class="block-title">Search & Form Inputs</h2>
+      <p class="block-desc">Dark border at rest, green border on focus with subtle glow.</p>
+      <div class="component-preview" style="max-width:360px; flex-direction:column; gap:0.75rem;">
+        <input type="text" class="demo-input" placeholder="Search for a space..." />
+        <input type="text" class="demo-input demo-input--focus" placeholder="Search focused state" />
+      </div>
+      <div class="code-file" style="margin-top:1.5rem;">
+        <div class="code-file-bar">
+          <span class="code-file-name">.input</span>
+        </div>
+        <pre class="code-block"><code>{`.input {
+  width: 100%;
+  height: 44px;
+  padding: 0 1rem;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-brand-dark);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-brand-dark);
+  border-radius: var(--radius-input);
+  outline: none;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+.input::placeholder { color: var(--color-brand-dark); opacity: 0.45; font-weight: 400; }
+.input:hover        { border-color: var(--color-brand-green); }
+.input:focus        {
+  border-color: var(--color-brand-green);
+  box-shadow: 0 0 0 3px rgba(10, 173, 10, 0.08);
+}`}</code></pre>
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Focus & Accessibility -->
+    <div class="block">
+      <h2 class="block-title">Focus & Accessibility</h2>
+      <p class="block-desc">Brand focus rings apply to keyboard navigation only — they are suppressed on mouse click.</p>
+      <div class="code-file">
+        <div class="code-file-bar">
+          <span class="code-file-name">focus.css</span>
+        </div>
+        <pre class="code-block"><code>{`/* Brand focus ring — keyboard only */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-brand-green);
+  outline-offset: 2px;
+}
+
+/* Suppress on mouse click */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+input:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}`}</code></pre>
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Section Layout -->
+    <div class="block">
+      <h2 class="block-title">Section Layout Pattern</h2>
+      <p class="block-desc">Every content section follows the same structural pattern.</p>
+      <div class="layout-diagram">
+        <div class="ld-row ld-heading">H2 · 800 ExtraBold · #021300</div>
+        <div class="ld-gap ld-gap--sm">↕ 1.5rem</div>
+        <div class="ld-row ld-subtext">Subtext · 300 Light · #021300 · max-width 36rem</div>
+        <div class="ld-gap ld-gap--lg">↕ 3rem</div>
+        <div class="ld-row ld-content">Content — cards / grid / list</div>
+      </div>
+      <div class="code-file" style="margin-top:1.5rem;">
+        <div class="code-file-bar">
+          <span class="code-file-name">section.css</span>
+        </div>
+        <pre class="code-block"><code>{`.section { padding: 4rem 1.5rem; }
+@media (min-width: 1024px) { .section { padding: 6rem 2rem; } }
+
+.section__heading {
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 800;
+  color: var(--color-brand-dark);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+.section__subtext {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--color-brand-dark);
+  line-height: 1.625;
+  max-width: 36rem;
+  margin-bottom: 3rem;
+}`}</code></pre>
+      </div>
+    </div>
+
+  </div>
+</BaseLayout>
+
+<style>
+  .code-file {
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .code-file-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #F9FAFB;
+    border-bottom: 1px solid #E5E7EB;
+    padding: 0.5rem 1rem;
+  }
+  .code-file-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(2,19,0,0.5);
+    font-family: 'Courier New', monospace;
+  }
+  .copy-btn {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #0AAD0A;
+    background: none;
+    border: 1px solid rgba(10,173,10,0.3);
+    border-radius: 4px;
+    padding: 2px 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.2s ease;
+  }
+  .copy-btn:hover { background: #0AAD0A; color: #fff; border-color: #0AAD0A; }
+
+  .code-block {
+    background: #021300;
+    padding: 1.25rem 1.5rem;
+    overflow-x: auto;
+    margin: 0;
+  }
+  .code-block code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.75;
+    white-space: pre;
+  }
+
+  .component-row {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .component-preview {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1.5rem;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 280px;
+  }
+  .component-states {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+    min-width: 200px;
+  }
+  .state-row {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    align-items: baseline;
+  }
+  .state-label {
+    font-weight: 600;
+    color: rgba(2,19,0,0.4);
+    min-width: 60px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .state-val { font-weight: 300; color: #021300; }
+
+  /* Demo components */
+  .demo-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #fff;
+    background: #021300;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+  }
+  .demo-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #021300;
+    background: transparent;
+    border: 1px solid #021300;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .demo-card {
+    border: 2px solid #021300;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    width: 100%;
+  }
+  .demo-card:hover { border-color: #0AAD0A; transform: translateY(-2px); }
+  .demo-card-img {
+    height: 140px;
+    background: linear-gradient(135deg, #E5E7EB 0%, #d1d5db 100%);
+    width: 100%;
+  }
+  .demo-card-body { padding: 1rem 1.25rem 1.25rem; }
+  .demo-card-title { font-weight: 700; font-size: 1rem; color: #021300; margin-bottom: 0.25rem; }
+  .demo-card-meta  { font-weight: 300; font-size: 13px; color: #021300; }
+
+  .demo-input {
+    width: 100%;
+    height: 44px;
+    padding: 0 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #021300;
+    background: #fff;
+    border: 1px solid #021300;
+    border-radius: 6px;
+    outline: none;
+  }
+  .demo-input--focus {
+    border-color: #0AAD0A;
+    box-shadow: 0 0 0 3px rgba(10,173,10,0.08);
+  }
+
+  .layout-diagram {
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .ld-row {
+    padding: 1rem 1.5rem;
+    font-size: 0.825rem;
+    font-weight: 500;
+    border-bottom: 1px solid #E5E7EB;
+  }
+  .ld-gap {
+    padding: 0.35rem 1.5rem;
+    font-size: 0.7rem;
+    color: #0AAD0A;
+    font-weight: 600;
+    background: rgba(10,173,10,0.04);
+    border-bottom: 1px solid #E5E7EB;
+  }
+  .ld-heading  { background: #021300; color: #fff; }
+  .ld-subtext  { background: #F9FAFB; color: rgba(2,19,0,0.7); }
+  .ld-content  { background: #fff; color: rgba(2,19,0,0.5); border-bottom: none; min-height: 60px; display: flex; align-items: center; }
+
+  @media (max-width: 700px) {
+    .component-row { flex-direction: column; }
+  }
+</style>
+
+<script is:inline>
+  document.querySelectorAll('.copy-btn[data-copy]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id   = btn.getAttribute('data-copy');
+      const pre  = document.getElementById(id);
+      if (!pre) return;
+      navigator.clipboard.writeText(pre.innerText).then(() => {
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+      });
+    });
+  });
+</script>
