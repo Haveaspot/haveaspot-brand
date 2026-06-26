@@ -152,13 +152,13 @@ input:focus:not(:focus-visible) {
   padding: 0.6rem 1.75rem;
   font-size: 0.85rem;
   font-weight: var(--fw-medium);
-  color: rgba(2,19,0,0.45);
+  color: var(--color-brand-dark);
   transition: all var(--transition);
   border-left: 2px solid transparent;
 }
 
 .nav-item:hover {
-  color: var(--color-brand-dark);
+  color: var(--color-brand-green);
   background: rgba(2,19,0,0.04);
 }
 
@@ -171,9 +171,13 @@ input:focus:not(:focus-visible) {
 .nav-num {
   font-size: 0.7rem;
   font-weight: var(--fw-semibold);
-  color: rgba(2,19,0,0.25);
+  color: var(--color-brand-dark);
   font-variant-numeric: tabular-nums;
   min-width: 1.5rem;
+}
+
+.nav-item:hover .nav-num {
+  color: var(--color-brand-green);
 }
 
 .nav-item.is-active .nav-num { color: var(--color-brand-green); opacity: 0.7; }
