@@ -163,7 +163,8 @@ input:focus:not(:focus-visible) {
 }
 
 .nav-item.is-active {
-  color: var(--color-brand-green);
+  color: var(--color-brand-dark);
+  font-weight: var(--fw-semibold);
   border-left-color: var(--color-brand-green);
   background: var(--color-border-light);
 }
