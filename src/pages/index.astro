@@ -61,7 +61,7 @@ const sections = [
     padding: 6rem 4rem 4rem;
   }
   .home-hero-inner {
-    max-width: 680px;
+    max-width: none;
   }
   .home-eyebrow {
     font-size: 0.75rem;
@@ -78,6 +78,7 @@ const sections = [
     line-height: 1.0;
     letter-spacing: -0.03em;
     margin-bottom: 1.5rem;
+    white-space: nowrap;
   }
   .home-intro {
     font-size: 1.1rem;
@@ -85,7 +86,7 @@ const sections = [
     color: #021300;
     line-height: 1.7;
     margin-bottom: 2.5rem;
-    max-width: 48rem;
+    max-width: 42rem;
   }
   .home-meta {
     display: flex;
@@ -158,6 +159,7 @@ const sections = [
 
   @media (max-width: 700px) {
     .home-hero { padding: 3rem 1.5rem 2.5rem; }
+    .home-heading { white-space: normal; }
     .home-grid-wrapper { padding: 2.5rem 1.5rem 3rem; }
     .home-grid { grid-template-columns: 1fr; }
   }
