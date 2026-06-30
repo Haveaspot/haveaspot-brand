@@ -233,7 +233,7 @@ input:focus:not(:focus-visible) {
   font-size: 1.1rem;
   font-weight: var(--fw-light);
   color: var(--color-brand-dark);
-  max-width: 44rem;
+  max-width: 50rem;
   line-height: 1.7;
 }
 
@@ -261,7 +261,7 @@ input:focus:not(:focus-visible) {
   color: var(--color-brand-dark);
   line-height: 1.7;
   margin-bottom: 2rem;
-  max-width: 44rem;
+  max-width: 50rem;
 }
 
 .section-rule {
