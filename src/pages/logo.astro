@@ -34,17 +34,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
           <span class="logo-tile-label">Primary — on white</span>
         </div>
-        <div class="logo-tile logo-tile--green">
-          <div class="logo-placeholder">
-            <img src="/logo.webp" alt="Haveaspot Logo" class="logo-tile-img logo-tile-img--invert" />
-          </div>
-          <span class="logo-tile-label">Primary — on brand green</span>
-        </div>
         <div class="logo-tile logo-tile--surface">
           <div class="logo-placeholder">
             <img src="/logo.webp" alt="Haveaspot Logo" class="logo-tile-img" />
           </div>
           <span class="logo-tile-label">Primary — on light surface</span>
+        </div>
+        <div class="logo-tile logo-tile--green">
+          <div class="logo-placeholder">
+            <img src="/logo.webp" alt="Haveaspot Logo" class="logo-tile-img logo-tile-img--invert" />
+          </div>
+          <span class="logo-tile-label">Primary — on brand green</span>
         </div>
       </div>
     </div>
@@ -159,7 +159,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <style>
   .logo-showcase-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
   }
   .logo-tile {
@@ -169,6 +169,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
+    min-width: 0;
+  }
+  .logo-tile-label {
+    white-space: normal;
   }
   .logo-tile--dark    { background: #021300; }
   .logo-tile--light   { background: #fff; border: 2px solid #E5E7EB; }
