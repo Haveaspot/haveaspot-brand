@@ -158,7 +158,8 @@ input:focus:not(:focus-visible) {
 }
 
 .nav-item:hover {
-  color: var(--color-brand-green);
+  color: var(--color-brand-dark);
+  font-weight: var(--fw-semibold);
   background: rgba(2,19,0,0.04);
 }
 
@@ -178,7 +179,7 @@ input:focus:not(:focus-visible) {
 }
 
 .nav-item:hover .nav-num {
-  color: var(--color-brand-green);
+  color: var(--color-brand-dark);
 }
 
 .nav-item.is-active .nav-num { color: var(--color-brand-dark); opacity: 1; }
