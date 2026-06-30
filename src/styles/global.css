@@ -133,7 +133,7 @@ input:focus:not(:focus-visible) {
 .logo-tag {
   font-size: 0.7rem;
   font-weight: var(--fw-medium);
-  color: var(--color-brand-green);
+  color: var(--color-brand-dark);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
