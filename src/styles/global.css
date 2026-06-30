@@ -165,7 +165,7 @@ input:focus:not(:focus-visible) {
 .nav-item.is-active {
   color: var(--color-brand-green);
   border-left-color: var(--color-brand-green);
-  background: rgba(10,173,10,0.06);
+  background: var(--color-border-light);
 }
 
 .nav-num {
