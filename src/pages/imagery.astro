@@ -158,7 +158,7 @@ const dontItems = [
         <div class="treatment-item">
           <div class="treatment-demo">
             <img
-              src="https://about.haveaspot.com/images/hero-image.webp"
+              src="/imagery-example-6.png"
               alt="Hero image treatment"
               style="width:100%; height:200px; object-fit:cover; border-radius:0; display:block;"
               loading="lazy"
@@ -173,6 +173,51 @@ const dontItems = [
         <div class="tr-row"><span class="tr-key">Object fit</span><span class="tr-val">cover — never distort or letterbox</span></div>
         <div class="tr-row"><span class="tr-key">Hover</span><span class="tr-val">Subtle box-shadow lift on card images; no scale</span></div>
         <div class="tr-row"><span class="tr-key">Aspect ratio</span><span class="tr-val">16:9 for listing cards; 2:1 for hero banners</span></div>
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Incorrect Image Treatment -->
+    <div class="block">
+      <h2 class="block-title">Incorrect Image Treatment</h2>
+      <p class="block-desc">
+        Common technical mistakes that break the visual system, even when the photography itself is on-brand.
+      </p>
+      <div class="dont-grid">
+        <div class="dont-item">
+          <div class="dont-tile-img-wrap">
+            <img
+              src="/imagery-example-6.png"
+              alt="Stretched image treatment example"
+              style="width:100%; height:180px; object-fit:fill; border-radius:12px; border:2px solid #021300; display:block;"
+              loading="lazy"
+            />
+          </div>
+          <p class="dont-label">✗ Don't stretch or distort the aspect ratio</p>
+        </div>
+        <div class="dont-item">
+          <div class="dont-tile-img-wrap">
+            <img
+              src="/imagery-example-6.png"
+              alt="Missing border and radius example"
+              style="width:100%; height:180px; object-fit:cover; border-radius:0; border:none; display:block;"
+              loading="lazy"
+            />
+          </div>
+          <p class="dont-label">✗ Don't drop the border or radius on card images</p>
+        </div>
+        <div class="dont-item">
+          <div class="dont-tile-img-wrap dont-tile-img-wrap--letterbox">
+            <img
+              src="/imagery-example-6.png"
+              alt="Letterboxed image example"
+              style="width:100%; height:100%; object-fit:contain; display:block;"
+              loading="lazy"
+            />
+          </div>
+          <p class="dont-label">✗ Don't letterbox with object-fit: contain</p>
+        </div>
       </div>
     </div>
 
@@ -313,6 +358,27 @@ const dontItems = [
   .tr-key { font-weight: 600; color: #021300; }
   .tr-val { font-weight: 300; color: #021300; }
 
+  .dont-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+  .dont-item { display: flex; flex-direction: column; gap: 0.75rem; }
+  .dont-tile-img-wrap {
+    height: 180px;
+    overflow: hidden;
+  }
+  .dont-tile-img-wrap--letterbox {
+    background: #E5E7EB;
+    border-radius: 12px;
+    border: 2px solid #021300;
+  }
+  .dont-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #e53e3e;
+  }
+
   .prompt-card {
     background: #021300;
     border-radius: 12px;
@@ -335,7 +401,7 @@ const dontItems = [
   }
 
   @media (max-width: 700px) {
-    .image-grid, .photo-rules, .treatment-grid { grid-template-columns: 1fr; }
+    .image-grid, .photo-rules, .treatment-grid, .dont-grid { grid-template-columns: 1fr; }
     .tr-row { grid-template-columns: 1fr; }
   }
 </style>
