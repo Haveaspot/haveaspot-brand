@@ -40,7 +40,13 @@ const structural = [
             <div class="swatch-info">
               <h3 class="swatch-name">{c.name}</h3>
               <div class="swatch-values">
-                <div class="swatch-row"><span class="swatch-key">HEX</span><code class="swatch-val">{c.hex}</code></div>
+                <div class="swatch-row">
+                  <span class="swatch-key">HEX</span>
+                  <span class="hex-pill">
+                    <span class="hex-pill-dot" style={`background: ${c.hex}; border: 1px solid ${c.hex === '#FFFFFF' ? '#E5E7EB' : c.hex};`}></span>
+                    <code class="hex-pill-code">{c.hex}</code>
+                  </span>
+                </div>
                 <div class="swatch-row"><span class="swatch-key">RGB</span><code class="swatch-val">{c.rgb}</code></div>
               </div>
               <p class="swatch-usage">{c.usage}</p>
@@ -65,7 +71,13 @@ const structural = [
             <div class="swatch-info">
               <h3 class="swatch-name">{c.name}</h3>
               <div class="swatch-values">
-                <div class="swatch-row"><span class="swatch-key">HEX</span><code class="swatch-val">{c.hex}</code></div>
+                <div class="swatch-row">
+                  <span class="swatch-key">HEX</span>
+                  <span class="hex-pill">
+                    <span class="hex-pill-dot" style={`background: ${c.hex}; border: 1px solid ${c.hex === '#FFFFFF' ? '#E5E7EB' : c.hex};`}></span>
+                    <code class="hex-pill-code">{c.hex}</code>
+                  </span>
+                </div>
                 <div class="swatch-row"><span class="swatch-key">RGB</span><code class="swatch-val">{c.rgb}</code></div>
               </div>
               <p class="swatch-usage">{c.usage}</p>
@@ -103,9 +115,9 @@ const structural = [
         ].map(([ctx, colour, weight]) => (
           <div class="rule-row">
             <span class="rule-ctx">{ctx}</span>
-            <span class="rule-colour">
-              <span class="rule-dot" style={`background: ${colour}; border: 1px solid ${colour === '#FFFFFF' ? '#E5E7EB' : colour};`}></span>
-              <code>{colour}</code>
+            <span class="hex-pill">
+              <span class="hex-pill-dot" style={`background: ${colour}; border: 1px solid ${colour === '#FFFFFF' ? '#E5E7EB' : colour};`}></span>
+              <code class="hex-pill-code">{colour}</code>
             </span>
             <span class="rule-weight">{weight}</span>
           </div>
@@ -216,6 +228,26 @@ const structural = [
     padding: 2px 6px;
     border-radius: 3px;
   }
+  .hex-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 999px;
+    padding: 3px 10px 3px 5px;
+  }
+  .hex-pill-dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .hex-pill-code {
+    font-size: 0.8rem;
+    font-family: 'Courier New', monospace;
+    color: #021300;
+  }
   .swatch-usage {
     font-size: 0.8rem;
     font-weight: 300;
@@ -247,22 +279,6 @@ const structural = [
     letter-spacing: 0.08em;
   }
   .rule-ctx { font-weight: 400; color: #021300; }
-  .rule-colour {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  .rule-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-  .rule-colour code {
-    font-family: 'Courier New', monospace;
-    font-size: 0.78rem;
-    color: #021300;
-  }
   .rule-weight { font-weight: 300; color: rgba(2,19,0,0.6); font-size: 0.8rem; }
 
   .dd-grid {
