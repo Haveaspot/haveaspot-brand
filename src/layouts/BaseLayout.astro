@@ -9,6 +9,8 @@ interface Props {
 
 const { title, section = '', description = 'Haveaspot Brand Guidelines — the single source of truth for our brand.' } = Astro.props;
 
+const currentYear = new Date().getFullYear();
+
 const nav = [
   { id: 'index',      label: 'Overview',        href: '/',            num: '00' },
   { id: 'foundation', label: 'Brand Foundation', href: '/foundation',  num: '01' },
@@ -74,7 +76,7 @@ const nav = [
         </nav>
 
         <div class="sidebar-footer">
-          <span>v1.0 · 2025</span>
+          <span>v1.0 · {currentYear}</span>
           <span>© Haveaspot Ltd</span>
         </div>
       </div>
