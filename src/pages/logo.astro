@@ -275,6 +275,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     flex-direction: column;
     gap: 0.75rem;
     align-items: flex-start;
+    max-width: 150px;
   }
   .size-demo {
     border: 1px solid #E5E7EB;
@@ -365,6 +366,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   @media (max-width: 700px) {
     .logo-showcase-grid, .dont-grid { grid-template-columns: 1fr; }
-    .size-row { flex-direction: column; gap: 1.5rem; }
+    .size-row { flex-wrap: wrap; gap: 1.5rem; }
   }
 </style>
