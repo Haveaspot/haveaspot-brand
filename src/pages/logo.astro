@@ -130,25 +130,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="dont-grid">
         <div class="dont-item">
           <div class="dont-tile dont-tile--stretched">
-            <span class="lp-wordmark lp-wordmark--dark" style="transform: scaleX(1.4); display:inline-block;">Haveaspot</span>
+            <img src="/logo.webp" alt="Haveaspot Logo" class="dont-logo-img" style="transform: scaleX(1.6);" />
           </div>
           <p class="dont-label">✗ Don't stretch or distort</p>
         </div>
         <div class="dont-item">
           <div class="dont-tile dont-tile--lowcontrast">
-            <span class="lp-wordmark" style="color: rgba(255,255,255,0.25);">Haveaspot</span>
+            <img src="/logo-on-dark.svg" alt="Haveaspot Logo" class="dont-logo-img" style="opacity: 0.2;" />
           </div>
           <p class="dont-label">✗ Don't use on low-contrast backgrounds</p>
         </div>
         <div class="dont-item">
           <div class="dont-tile dont-tile--coloured">
-            <span class="lp-wordmark" style="color: #e53e3e;">Haveaspot</span>
+            <img src="/logo-mono-dark.svg" alt="Haveaspot Logo" class="dont-logo-img" style="filter: invert(29%) sepia(94%) saturate(3000%) hue-rotate(347deg) brightness(95%) contrast(93%);" />
           </div>
           <p class="dont-label">✗ Don't recolour the wordmark</p>
         </div>
         <div class="dont-item">
           <div class="dont-tile dont-tile--rotated">
-            <span class="lp-wordmark lp-wordmark--dark" style="transform: rotate(-15deg); display:inline-block;">Haveaspot</span>
+            <img src="/logo.webp" alt="Haveaspot Logo" class="dont-logo-img" style="transform: rotate(-15deg);" />
           </div>
           <p class="dont-label">✗ Don't rotate or tilt</p>
         </div>
@@ -317,6 +317,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: 0.8rem;
     font-weight: 500;
     color: #e53e3e;
+  }
+  .dont-logo-img {
+    height: 32px;
+    width: auto;
+    max-width: 140px;
+    object-fit: contain;
+    display: block;
   }
 
   .asset-link-btn {
