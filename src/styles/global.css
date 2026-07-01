@@ -238,7 +238,7 @@ input:focus:not(:focus-visible) {
 }
 
 .page-body {
-  padding: 4rem;
+  padding: var(--page-pad-y) var(--page-pad-x);
   max-width: 1280px;
 }
 
@@ -333,6 +333,17 @@ input:focus:not(:focus-visible) {
     border-bottom: 1px solid var(--color-border-light);
   }
   .page-body {
-    padding: 2.5rem 1.5rem;
+    padding: var(--page-pad-y) var(--page-pad-x);
+  }
+}
+
+:root {
+  --page-pad-x: 4rem;
+  --page-pad-y: 4rem;
+}
+@media (max-width: 900px) {
+  :root {
+    --page-pad-x: 1.5rem;
+    --page-pad-y: 2.5rem;
   }
 }

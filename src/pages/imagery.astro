@@ -143,30 +143,29 @@ const dontItems = [
     <div class="block">
       <h2 class="block-title">Image Treatment</h2>
       <p class="block-desc">How images should be cropped, bordered, and displayed in the UI.</p>
-      <div class="treatment-grid">
-        <div class="treatment-item">
-          <div class="treatment-demo">
-            <img
-              src="/imagery-example-5.png"
-              alt="Correct image treatment"
-              style="width:100%; height:200px; object-fit:cover; border-radius:12px; border:2px solid #021300; display:block;"
-              loading="lazy"
-            />
-          </div>
-          <p class="treatment-label"><strong>Cards and featured images</strong> — 12px border-radius, 2px solid #021300 border, object-fit: cover.</p>
+
+      <div class="treatment-item treatment-item--card">
+        <div class="treatment-demo">
+          <img
+            src="/imagery-example-5.png"
+            alt="Correct image treatment"
+            style="width:100%; aspect-ratio: 16/9; object-fit:cover; border-radius:12px; border:2px solid #021300; display:block;"
+            loading="lazy"
+          />
         </div>
-        <div class="treatment-item">
-          <div class="treatment-demo">
-            <img
-              src="/imagery-example-6.png"
-              alt="Hero image treatment"
-              style="width:100%; height:200px; object-fit:cover; border-radius:0; display:block;"
-              loading="lazy"
-            />
-          </div>
-          <p class="treatment-label"><strong>Hero / full-bleed images</strong> — No border-radius, no border. Image bleeds to the container edge.</p>
-        </div>
+        <p class="treatment-label"><strong>Cards and featured images</strong> — 12px border-radius, 2px solid #021300 border, object-fit: cover, 16:9 aspect ratio.</p>
       </div>
+
+      <div class="treatment-hero-bleed">
+        <img
+          src="/imagery-example-6.png"
+          alt="Hero image treatment"
+          style="width:100%; aspect-ratio: 2/1; object-fit:cover; border-radius:0; display:block;"
+          loading="lazy"
+        />
+      </div>
+      <p class="treatment-label treatment-label--hero"><strong>Hero / full-bleed images</strong> — No border-radius, no border, object-fit: cover, 2:1 aspect ratio. Bleeds to the edges of the content container.</p>
+
       <div class="treatment-rules">
         <div class="tr-row"><span class="tr-key">Border radius</span><span class="tr-val">12px for cards; 0 for full-bleed heroes</span></div>
         <div class="tr-row"><span class="tr-key">Border</span><span class="tr-val">2px solid #021300 on cards and listing images</span></div>
@@ -325,13 +324,15 @@ const dontItems = [
   .photo-col--do .pr-list li::before   { content: '✓'; position: absolute; left: 0; color: #0AAD0A; font-weight: 700; }
   .photo-col--dont .pr-list li::before { content: '✗'; position: absolute; left: 0; color: #e53e3e; font-weight: 700; }
 
-  .treatment-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-    margin-bottom: 1.5rem;
-  }
   .treatment-item { display: flex; flex-direction: column; gap: 0.75rem; }
+  .treatment-item--card {
+    max-width: 420px;
+    margin-bottom: 2rem;
+  }
+  .treatment-hero-bleed {
+    margin: 0 calc(-1 * var(--page-pad-x));
+    margin-bottom: 0.75rem;
+  }
   .treatment-label {
     font-size: 0.8rem;
     font-weight: 300;
@@ -339,6 +340,7 @@ const dontItems = [
     line-height: 1.55;
   }
   .treatment-label strong { font-weight: 600; }
+  .treatment-label--hero { margin-bottom: 1.5rem; }
 
   .treatment-rules {
     border: 1px solid #E5E7EB;
@@ -401,7 +403,8 @@ const dontItems = [
   }
 
   @media (max-width: 700px) {
-    .image-grid, .photo-rules, .treatment-grid, .dont-grid { grid-template-columns: 1fr; }
+    .image-grid, .photo-rules, .dont-grid { grid-template-columns: 1fr; }
     .tr-row { grid-template-columns: 1fr; }
+    .treatment-item--card { max-width: none; }
   }
 </style>
