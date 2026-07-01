@@ -362,6 +362,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     color: #021300;
   }
 
+  @media (max-width: 900px) {
+    .logo-tile {
+      align-items: center;
+      text-align: center;
+    }
+    .logo-placeholder {
+      justify-content: center;
+    }
+    .logo-tile-label {
+      align-self: center;
+    }
+  }
+
   @media (max-width: 700px) {
     .logo-showcase-grid, .dont-grid { grid-template-columns: 1fr; }
     .size-row { flex-direction: column; gap: 1.5rem; }
