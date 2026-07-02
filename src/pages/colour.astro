@@ -43,7 +43,7 @@ const structural = [
                 <div class="swatch-row">
                   <span class="swatch-key">HEX</span>
                   <span class="hex-pill">
-                    <span class="hex-pill-dot" style={`background: ${c.hex}; border: 1px solid ${c.hex === '#FFFFFF' ? '#E5E7EB' : c.hex};`}></span>
+                    <span class="hex-pill-dot" style={`background: ${c.hex}; border: 1px solid ${(c.hex === '#FFFFFF' || c.hex === '#F9FAFB') ? '#E5E7EB' : c.hex};`}></span>
                     <code class="hex-pill-code">{c.hex}</code>
                   </span>
                 </div>
@@ -74,7 +74,7 @@ const structural = [
                 <div class="swatch-row">
                   <span class="swatch-key">HEX</span>
                   <span class="hex-pill">
-                    <span class="hex-pill-dot" style={`background: ${c.hex}; border: 1px solid ${c.hex === '#FFFFFF' ? '#E5E7EB' : c.hex};`}></span>
+                    <span class="hex-pill-dot" style={`background: ${c.hex}; border: 1px solid ${(c.hex === '#FFFFFF' || c.hex === '#F9FAFB') ? '#E5E7EB' : c.hex};`}></span>
                     <code class="hex-pill-code">{c.hex}</code>
                   </span>
                 </div>
@@ -116,7 +116,7 @@ const structural = [
           <div class="rule-row">
             <span class="rule-ctx">{ctx}</span>
             <span class="hex-pill">
-              <span class="hex-pill-dot" style={`background: ${colour}; border: 1px solid ${colour === '#FFFFFF' ? '#E5E7EB' : colour};`}></span>
+              <span class="hex-pill-dot" style={`background: ${colour}; border: 1px solid ${(colour === '#FFFFFF' || colour === '#F9FAFB') ? '#E5E7EB' : colour};`}></span>
               <code class="hex-pill-code">{colour}</code>
             </span>
             <span class="rule-weight">{weight}</span>

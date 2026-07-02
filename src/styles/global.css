@@ -233,8 +233,8 @@ input:focus:not(:focus-visible) {
   font-size: 1.1rem;
   font-weight: var(--fw-light);
   color: var(--color-brand-dark);
-  max-width: 56rem;
   line-height: 1.7;
+  max-width: calc(1280px - 2 * var(--page-pad-x));
 }
 
 .page-body {
@@ -261,7 +261,6 @@ input:focus:not(:focus-visible) {
   color: var(--color-brand-dark);
   line-height: 1.7;
   margin-bottom: 2rem;
-  max-width: 56rem;
 }
 
 .section-rule {
@@ -314,12 +313,19 @@ input:focus:not(:focus-visible) {
 @media (max-width: 900px) {
   .sidebar {
     transform: translateX(-100%);
+    top: 56px;
+    height: calc(100vh - 56px);
+    z-index: 299;
+  }
+  .sidebar-logo {
+    display: none;
   }
   .sidebar.is-open {
     transform: translateX(0);
   }
   .sidebar-overlay.is-visible {
     display: block;
+    top: 56px;
   }
   .mobile-bar {
     display: flex;

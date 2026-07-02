@@ -1,41 +1,84 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const assetGroups = [
+const logoAssets = [
   {
-    title: 'Logo Files',
-    desc: 'Master logo files in all approved formats. Always use these — never recreate the logo in type.',
-    assets: [
-      { name: 'Primary Logo — Dark',    formats: ['SVG', 'PNG', 'PDF'], note: 'White wordmark for dark and coloured backgrounds' },
-      { name: 'Primary Logo — Light',   formats: ['SVG', 'PNG', 'PDF'], note: 'Dark wordmark for white and light backgrounds' },
-      { name: 'Icon / Mark Only',       formats: ['SVG', 'PNG'],        note: 'For favicon, app icon, and small-format use' },
-      { name: 'Logo — Mono White',      formats: ['SVG', 'PNG'],        note: 'Single-colour white for print and embossing' },
-      { name: 'Logo — Mono Dark',       formats: ['SVG', 'PNG'],        note: 'Single-colour dark for print and embossing' },
+    name: 'Primary Logo — Dark',
+    note: 'White wordmark for dark and coloured backgrounds',
+    preview: { src: '/downloads/logo-primary-dark.svg', bg: '#021300', border: false },
+    files: [
+      { label: 'SVG', href: '/downloads/logo-primary-dark.svg', ready: true },
+      { label: 'PNG', href: '/downloads/logo-primary-dark.png', ready: true },
     ],
   },
   {
-    title: 'Colour Swatches',
-    desc: 'Brand colour swatches for design tools.',
-    assets: [
-      { name: 'Figma Colour Styles',    formats: ['Figma'],             note: 'Ready-to-import Figma library' },
-      { name: 'Adobe ASE Swatches',     formats: ['ASE'],               note: 'Compatible with Illustrator, Photoshop, InDesign' },
-      { name: 'CSS Variables',          formats: ['CSS'],               note: 'Copy-paste token block — see UI & Components section' },
+    name: 'Primary Logo — Light',
+    note: 'Dark wordmark for white and light backgrounds',
+    preview: { src: '/downloads/logo-primary-light.svg', bg: '#F9FAFB', border: true },
+    files: [
+      { label: 'SVG', href: '/downloads/logo-primary-light.svg', ready: true },
+      { label: 'PNG', href: '/downloads/logo-primary-light.png', ready: true },
     ],
   },
   {
-    title: 'Typography',
-    desc: 'Poppins is available via Google Fonts and @fontsource. No download required for web use.',
-    assets: [
-      { name: 'Poppins — Google Fonts', formats: ['Web link'],          note: 'fonts.google.com/specimen/Poppins' },
-      { name: 'Poppins — @fontsource',  formats: ['npm / yarn'],        note: '@fontsource/poppins' },
+    name: 'Icon / Mark Only',
+    note: 'For favicon, app icon, and small-format use',
+    preview: { src: '/downloads/logo-icon.svg', bg: '#F9FAFB', border: true, circle: true },
+    files: [
+      { label: 'SVG', href: '/downloads/logo-icon.svg', ready: true },
+      { label: 'PNG', href: '/downloads/logo-icon.png', ready: true },
     ],
   },
   {
-    title: 'Brand Deck & Guidelines',
-    desc: 'Presentation-ready brand materials for agencies and partners.',
-    assets: [
-      { name: 'Brand Guidelines (this site)', formats: ['Web'],         note: 'brand.haveaspot.com' },
-      { name: 'BRAND.md — Developer Reference', formats: ['Markdown'],  note: 'github.com/Haveaspot/haveaspot-brand' },
+    name: 'Logo — Mono White',
+    note: 'Single-colour white for print and embossing',
+    preview: { src: '/downloads/logo-mono-white.svg', bg: '#021300', border: false },
+    files: [
+      { label: 'SVG', href: '/downloads/logo-mono-white.svg', ready: true },
+      { label: 'PNG', href: '/downloads/logo-mono-white.png', ready: true },
+    ],
+  },
+  {
+    name: 'Logo — Mono Dark',
+    note: 'Single-colour dark for print and embossing',
+    preview: { src: '/downloads/logo-mono-dark.svg', bg: '#F9FAFB', border: true },
+    files: [
+      { label: 'SVG', href: '/downloads/logo-mono-dark.svg', ready: true },
+      { label: 'PNG', href: '/downloads/logo-mono-dark.png', ready: true },
+    ],
+  },
+];
+
+const colourAssets = [
+  {
+    name: 'CSS Variables',
+    note: 'Design token block — drop into your project global CSS',
+    files: [
+      { label: 'CSS', href: '/downloads/haveaspot-css-variables.css', ready: true },
+    ],
+  },
+  {
+    name: 'Colour Palette',
+    note: 'Full palette with hex values, RGB values, and usage rules',
+    files: [
+      { label: 'PDF', href: '/downloads/haveaspot-colour-palette.pdf', ready: true },
+    ],
+  },
+];
+
+const typographyAssets = [
+  {
+    name: 'Poppins — Google Fonts',
+    note: 'fonts.google.com/specimen/Poppins',
+    files: [
+      { label: 'Open', href: 'https://fonts.google.com/specimen/Poppins', ready: true, external: true },
+    ],
+  },
+  {
+    name: 'Poppins — @fontsource',
+    note: 'npm install @fontsource/poppins',
+    files: [
+      { label: 'npm', href: 'https://www.npmjs.com/package/@fontsource/poppins', ready: true, external: true },
     ],
   },
 ];
@@ -46,65 +89,101 @@ const assetGroups = [
     <span class="page-num">08 — Downloads</span>
     <h1 class="page-title">Downloads</h1>
     <p class="page-intro">
-      All brand assets are stored in the Haveaspot Google Drive asset library. Use the files from
-      this library only — never export, recreate, or alter brand assets independently.
+      Brand assets ready to use. Logo files should always be taken from here — never recreated or altered independently.
     </p>
   </div>
 
   <div class="page-body">
 
-    <!-- Master CTA -->
+    <!-- Logo Files -->
     <div class="block">
-      <div class="master-cta">
-        <div class="mc-left">
-          <div class="mc-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
-            </svg>
+      <h2 class="block-title">Logo Files</h2>
+      <p class="block-desc">Master logo files in all approved formats. Always use these — never recreate the logo in type.</p>
+      <div class="asset-list">
+        {logoAssets.map(asset => (
+          <div class="asset-row">
+            <div class="asset-info">
+              <span class="asset-name">{asset.name}</span>
+              <span class="asset-note">{asset.note}</span>
+            </div>
+            <div
+              class={`logo-pill${asset.preview.circle ? ' logo-pill--circle' : ''}`}
+              style={`background:${asset.preview.bg};${asset.preview.border ? ' border:1px solid #E5E7EB;' : ''}`}
+            >
+              <img src={asset.preview.src} alt={asset.name} class="logo-pill-img" />
+            </div>
+            <div class="asset-actions">
+              {asset.files.map(f => (
+                f.ready
+                  ? <a href={f.href} download class="dl-btn dl-btn--ready">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                      {f.label}
+                    </a>
+                  : <span class="dl-btn dl-btn--pending" title={`Add ${f.href.split('/').pop()} to public/downloads/`}>
+                      {f.label}
+                    </span>
+              ))}
+            </div>
           </div>
-          <div>
-            <h2 class="mc-title">Asset Library</h2>
-            <p class="mc-desc">All brand assets in one place. Request access if you need it.</p>
-          </div>
-        </div>
-        <a
-          href="https://drive.google.com/drive/u/0/folders/1gzTSBvjuhShy0lzH08Hji2u7Y7o_Stch"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mc-btn"
-        >
-          Open Google Drive
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-            <polyline points="15 3 21 3 21 9"/>
-            <line x1="10" y1="14" x2="21" y2="3"/>
-          </svg>
-        </a>
+        ))}
       </div>
     </div>
 
     <hr class="section-rule" />
 
-    <!-- Asset Groups -->
-    {assetGroups.map(group => (
-      <div class="block">
-        <h2 class="block-title">{group.title}</h2>
-        <p class="block-desc">{group.desc}</p>
-        <div class="asset-list">
-          {group.assets.map(asset => (
-            <div class="asset-row">
-              <div class="asset-info">
-                <span class="asset-name">{asset.name}</span>
-                <span class="asset-note">{asset.note}</span>
-              </div>
-              <div class="asset-formats">
-                {asset.formats.map(f => <span class="format-tag">{f}</span>)}
-              </div>
+    <!-- Colour -->
+    <div class="block">
+      <h2 class="block-title">Colour Swatches</h2>
+      <p class="block-desc">Brand colour tokens for design tools and code.</p>
+      <div class="asset-list">
+        {colourAssets.map(asset => (
+          <div class="asset-row">
+            <div class="asset-info">
+              <span class="asset-name">{asset.name}</span>
+              <span class="asset-note">{asset.note}</span>
             </div>
-          ))}
-        </div>
+            <div class="asset-spacer"></div>
+            <div class="asset-actions">
+              {asset.files.map(f => (
+                f.ready
+                  ? <a href={f.href} download={!f.external || undefined} target={f.external ? '_blank' : undefined} rel={f.external ? 'noopener noreferrer' : undefined} class="dl-btn dl-btn--ready">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                      {f.label}
+                    </a>
+                  : <span class="dl-btn dl-btn--pending">{f.label}</span>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
-    ))}
+    </div>
+
+    <hr class="section-rule" />
+
+    <!-- Typography -->
+    <div class="block">
+      <h2 class="block-title">Typography</h2>
+      <p class="block-desc">Poppins is available via Google Fonts and @fontsource. No download required for web use.</p>
+      <div class="asset-list">
+        {typographyAssets.map(asset => (
+          <div class="asset-row">
+            <div class="asset-info">
+              <span class="asset-name">{asset.name}</span>
+              <span class="asset-note">{asset.note}</span>
+            </div>
+            <div class="asset-spacer"></div>
+            <div class="asset-actions">
+              {asset.files.map(f => (
+                <a href={f.href} target="_blank" rel="noopener noreferrer" class="dl-btn dl-btn--ready">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  {f.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
 
     <hr class="section-rule" />
 
@@ -117,11 +196,11 @@ const assetGroups = [
       </p>
       <div class="policy-list">
         {[
-          ['Internal use',    'All Haveaspot team members may access and use brand assets for business purposes.'],
-          ['Agency partners', 'Approved agencies may access assets for active Haveaspot projects. Do not share with third parties.'],
-          ['External use',    'Any external use of the Haveaspot logo or brand must be approved by the founding team before publication.'],
-          ['Alterations',     'Brand assets must not be altered, recoloured, distorted, or recreated. Use master files only.'],
-          ['Requesting access','Email the team to request access to the asset library or to report an incorrect usage.'],
+          ['Internal use',      'All Haveaspot team members may access and use brand assets for business purposes.'],
+          ['Agency partners',   'Approved agencies may access assets for active Haveaspot projects. Do not share with third parties.'],
+          ['External use',      'Any external use of the Haveaspot logo or brand must be approved by the founding team before publication.'],
+          ['Alterations',       'Brand assets must not be altered, recoloured, distorted, or recreated. Use master files only.'],
+          ['Requesting access', 'Email the team to request access to the asset library or to report an incorrect usage.'],
         ].map(([k, v]) => (
           <div class="policy-row">
             <span class="policy-key">{k}</span>
@@ -154,6 +233,21 @@ const assetGroups = [
 </BaseLayout>
 
 <style>
+  .upload-note {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: rgba(2,19,0,0.5);
+    margin-bottom: 1.25rem;
+    line-height: 1.6;
+  }
+  .upload-note code {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    background: rgba(2,19,0,0.06);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
   .master-cta {
     display: flex;
     align-items: center;
@@ -207,7 +301,7 @@ const assetGroups = [
     transition: background 0.2s ease;
     flex-shrink: 0;
   }
-  .mc-btn:hover { background: #0E491F; }
+  .mc-btn:hover { background: #0E491F; color: #fff; }
 
   .asset-list {
     display: flex;
@@ -217,13 +311,12 @@ const assetGroups = [
     overflow: hidden;
   }
   .asset-row {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 160px 1fr;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    gap: 2rem;
     padding: 1rem 1.25rem;
     border-bottom: 1px solid #E5E7EB;
-    flex-wrap: wrap;
   }
   .asset-row:last-child { border-bottom: none; }
   .asset-info {
@@ -241,20 +334,72 @@ const assetGroups = [
     font-weight: 300;
     color: rgba(2,19,0,0.5);
   }
-  .asset-formats {
+  .logo-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    padding: 0.45rem 1.1rem;
+    width: 160px;
+    flex-shrink: 0;
+  }
+  .logo-pill--circle {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .logo-pill--circle .logo-pill-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    -webkit-mask-image: radial-gradient(circle, black 100%, transparent 100%);
+    mask-image: radial-gradient(circle, black 100%, transparent 100%);
+  }
+  .logo-pill-img {
+    height: 20px;
+    width: auto;
+    display: block;
+  }
+  .asset-actions {
     display: flex;
     gap: 0.4rem;
     flex-wrap: wrap;
+    flex-shrink: 0;
+    justify-self: end;
   }
-  .format-tag {
-    font-size: 0.65rem;
+  .asset-spacer {
+    width: 160px;
+  }
+  .dl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.7rem;
     font-weight: 700;
-    color: #021300;
+    letter-spacing: 0.04em;
+    border-radius: 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    transition: background 0.15s ease, color 0.15s ease;
+    white-space: nowrap;
+  }
+  .dl-btn--ready {
+    background: #021300;
+    color: #fff;
+    cursor: pointer;
+  }
+  .dl-btn--ready:hover {
+    background: #0AAD0A;
+    color: #fff;
+  }
+  .dl-btn--pending {
     background: #F9FAFB;
+    color: rgba(2,19,0,0.35);
     border: 1px solid #E5E7EB;
-    border-radius: 4px;
-    padding: 2px 7px;
-    letter-spacing: 0.05em;
+    cursor: default;
   }
 
   .policy-list {
@@ -289,7 +434,7 @@ const assetGroups = [
     text-decoration: none;
     transition: background 0.2s ease;
   }
-  .gh-link:hover { background: #0AAD0A; }
+  .gh-link:hover { background: #0AAD0A; color: #fff; }
 
   @media (max-width: 700px) {
     .master-cta { flex-direction: column; align-items: flex-start; }

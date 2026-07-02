@@ -1,0 +1,34 @@
+/* ================================================
+   HAVEASPOT BRAND — CSS VARIABLES
+   Copy this block into your project's global CSS.
+   ================================================ */
+
+:root {
+  /* Brand Colours */
+  --color-brand-dark:   #021300;
+  --color-brand-green:  #0AAD0A;
+  --color-brand-hover:  #0E491F;
+  --color-neon-green:   #0FED27;
+  --color-neon-yellow:  #D5FF00;
+  --color-white:        #FFFFFF;
+  --color-surface:      #F9FAFB;
+  --color-border-light: #E5E7EB;
+
+  /* Typography */
+  --font:          'Poppins', system-ui, sans-serif;
+  --fw-extrabold:  800;
+  --fw-bold:       700;
+  --fw-semibold:   600;
+  --fw-medium:     500;
+  --fw-regular:    400;
+  --fw-light:      300;
+
+  /* Radii */
+  --radius-card:   12px;
+  --radius-btn:     6px;
+  --radius-input:   6px;
+  --radius-pill:   20px;
+
+  /* Transitions */
+  --transition: 0.2s ease;
+}

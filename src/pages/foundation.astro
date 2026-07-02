@@ -154,6 +154,44 @@ const values = [
       </div>
     </div>
 
+    <hr class="section-rule" />
+
+    <!-- Future Direction -->
+    <div class="block">
+      <h2 class="block-title">Future Direction</h2>
+      <p class="block-desc">
+        Our roadmap extends beyond today's core market — the brand should stretch with it, not be rewritten by it.
+      </p>
+      <div class="future-grid">
+        <div class="future-card">
+          <span class="future-label">Vertical Expansion</span>
+          <p class="future-text">
+            Schools, local councils, and independent commercial venues join village halls and community
+            centres over time. The tone changes by audience, but the promise — free simplicity for venues,
+            instant trust for bookers — does not.
+          </p>
+        </div>
+        <div class="future-card">
+          <span class="future-label">Revenue Diversification</span>
+          <p class="future-text">
+            Advertising, recurring bookings, and ticketing extend the platform without diluting it. Every
+            new module earns its place only if it stays true to "Simplicity and Reliability."
+          </p>
+        </div>
+        <div class="future-card">
+          <span class="future-label">Geographic Expansion</span>
+          <p class="future-text">
+            Australia follows once the UK market is proven. Same playbook, same values, same voice —
+            adapted, never diluted, for a new market.
+          </p>
+        </div>
+      </div>
+      <p class="future-footnote">
+        This is direction, not a current claim. Brand language should describe who we serve today —
+        update Mission, Positioning, and Who We Serve as each new vertical or market actually launches.
+      </p>
+    </div>
+
   </div>
 </BaseLayout>
 
@@ -310,9 +348,47 @@ const values = [
     font-weight: 700;
   }
 
+  .future-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .future-card {
+    padding: 1.75rem;
+    background: #F9FAFB;
+    border-radius: 12px;
+    border: 1px solid #E5E7EB;
+  }
+  .future-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #0AAD0A;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+  .future-text {
+    font-size: 0.875rem;
+    font-weight: 300;
+    color: #021300;
+    line-height: 1.65;
+  }
+  .future-footnote {
+    font-size: 0.8rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(2,19,0,0.5);
+    line-height: 1.6;
+    border-left: 3px solid #E5E7EB;
+    padding-left: 1rem;
+  }
+
   @media (max-width: 700px) {
     .statement-card { padding: 1.75rem; }
     .audience-grid { grid-template-columns: 1fr; }
     .positioning-block { flex-direction: column; gap: 0.4rem; }
+    .future-grid { grid-template-columns: 1fr; }
   }
 </style>
