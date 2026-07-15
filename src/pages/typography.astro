@@ -57,6 +57,40 @@ const scale = [
 
     <hr class="section-rule" />
 
+    <!-- Logo Typeface -->
+    <div class="block">
+      <h2 class="block-title">Logo Typeface — Breton Bold</h2>
+      <p class="block-desc">
+        Breton Bold is reserved exclusively for the "haveaspot" logotype. It is never used for headings,
+        body copy, or UI text — Poppins remains the only typeface for everything else. Self-hosted below
+        so the wordmark renders identically wherever it's built.
+      </p>
+      <div class="typeface-hero breton-hero">
+        <p class="tf-specimen breton-specimen">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz</p>
+        <p class="tf-numbers breton-specimen">0 1 2 3 4 5 6 7 8 9</p>
+      </div>
+      <div class="font-load-code">
+        <p class="code-label">Self-hosted @font-face</p>
+        <pre class="code-block"><code>{`@font-face {
+  font-family: 'Breton';
+  src: url('/fonts/breton-bold/Breton-Bold.woff2') format('woff2'),
+       url('/fonts/breton-bold/Breton-Bold.woff') format('woff'),
+       url('/fonts/breton-bold/Breton-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}`}</code></pre>
+        <p class="code-label" style="margin-top: 1rem;">Font Files</p>
+        <div class="file-links">
+          <a href="/fonts/breton-bold/Breton-Bold.woff2" download class="file-link">Breton-Bold.woff2</a>
+          <a href="/fonts/breton-bold/Breton-Bold.woff" download class="file-link">Breton-Bold.woff</a>
+          <a href="/fonts/breton-bold/Breton-Bold.ttf" download class="file-link">Breton-Bold.ttf</a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-rule" />
+
     <!-- Weight Scale -->
     <div class="block">
       <h2 class="block-title">Weight Scale</h2>
@@ -140,7 +174,49 @@ const scale = [
   </div>
 </BaseLayout>
 
+<style is:global>
+  @font-face {
+    font-family: 'Breton';
+    src: url('/fonts/breton-bold/Breton-Bold.woff2') format('woff2'),
+         url('/fonts/breton-bold/Breton-Bold.woff') format('woff'),
+         url('/fonts/breton-bold/Breton-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
+
 <style>
+  .breton-specimen {
+    font-family: 'Breton', 'Poppins', sans-serif;
+    color: #021300;
+  }
+
+  .file-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .file-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.78rem;
+    font-weight: 500;
+    font-family: 'Courier New', monospace;
+    color: #021300;
+    background: #F9FAFB;
+    border: 1px solid #E5E7EB;
+    border-radius: 6px;
+    padding: 6px 12px;
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .file-link:hover {
+    background: #021300;
+    color: #fff;
+    border-color: #021300;
+  }
+
   .typeface-hero {
     background: #F9FAFB;
     border: 1px solid #E5E7EB;
